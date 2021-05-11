@@ -4,9 +4,6 @@ import { Header } from "../components/header"
 
 import P5Wrapper from "../components/P5Wrapper"
 
-// var p5_renderer = "webgl"
-// var p5_renderer = "p2d"
-
 function sketch(p) {
   p.preload = () => {}
   p.setup = () => {
@@ -23,8 +20,6 @@ function sketch(p) {
     let m = mouse(p, p.WEBGL)
     let x = m[0] - size / 2
     let y = m[1] - size / 2
-    // let x = p.mouseX - size / 2
-    // let y = p.mouseY - size / 2
 
     let rounded = 10
     p.noStroke()
