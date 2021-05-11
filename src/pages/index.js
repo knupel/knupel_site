@@ -2,7 +2,8 @@ import React from "react"
 import "../styles/layout.css"
 import { Header } from "../components/header"
 
-import P5Wrapper from "../components/P5wrapper"
+//import P5Wrapper from "../components/P5wrapper"
+import P5Wrapper from "../components/WrapperP5"
 
 function sketch(p) {
   p.preload = () => {}
