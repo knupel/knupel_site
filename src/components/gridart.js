@@ -3,11 +3,9 @@ import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 
 const img_grid_style = {
+  position: "relative",
   display: "grid",
-  // gridTemplateAreas: `repeat(3, 1fr)`,
   gridTemplateColumns: `repeat(auto-fill, minmax(200px, 1fr))`,
-  // gridTemplateColumns: `repeat(3, 1fr)`,
-  // gridTemplateColumns: `1fr 2fr 1fr`,
 };
 
 export function GridArt() {
