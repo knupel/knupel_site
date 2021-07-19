@@ -1,0 +1,19 @@
+.global {
+  background: yellow;
+  margin: 0 auto;
+  padding: 0.5em;
+  /* max-width: 960px; */
+  /* padding: 1.45rem 1.0875rem; */
+}
+
+h1 {
+  color: magenta;
+}
+
+h2 {
+  color: orange;
+}
+
+p {
+  color: purple;
+}

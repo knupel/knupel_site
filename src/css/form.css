@@ -1,0 +1,24 @@
+.elem {
+  padding-left: 0.3em;
+}
+
+input {
+  background: yellow;
+  box-sizing: border-box;
+  padding: 0.3em;
+  margin: 0.3em;
+}
+input[type="text"] {
+  width: 25em;
+}
+
+input[type="email"] {
+  width: 20em;
+}
+
+textarea {
+  background: yellow;
+  margin: 0.3em;
+  width: 25em;
+  height: 10em;
+}

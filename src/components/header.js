@@ -1,8 +1,23 @@
-import React from 'react';
+import React from "react";
 
-export function Header(props) {
-  const style = {
-    color: `${props.color_text}`,
-  };
-  return <h1 style={style}>{props.str}</h1>;
-}
+import PropTypes from "prop-types";
+import { Link } from "gatsby";
+import { Menu } from "./menu";
+
+import "../css/header.css";
+
+const Header = ({ siteTitle }) => (
+  <header>
+    <Menu />
+  </header>
+);
+
+Header.propTypes = {
+  siteTitle: PropTypes.string,
+};
+
+Header.defaultProps = {
+  siteTitle: ``,
+};
+
+export default Header;

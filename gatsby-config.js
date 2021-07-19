@@ -6,12 +6,26 @@
 
 module.exports = {
   siteMetadata: {
+    siteUrl: `https://www.knupel.art`,
     title: `Knupel`,
     description: `Herr Knupel est ici`,
     author: `@stanlepunk`,
   },
 
   plugins: [
+    // MANIFEST
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Knupel`,
+        short_name: `Knupel`,
+        start_url: `/`,
+        background_color: `#f7f0eb`,
+        theme_color: `#a2466c`,
+        display: `standalone`,
+        icon: `media/icon.png`,
+      },
+    },
     // DATABASE
     {
       resolve: `gatsby-source-mongodb`,
@@ -44,7 +58,18 @@ module.exports = {
         ignore: [`**/\.*`], // ignore files starting with a dot
       },
     },
-    // path: `${__dirname}/media/photo/tdm`,
+    // MARKDOWN
+    // https://dev.to/alexalexyang/how-to-use-markdown-in-pages-in-gatsby-5dee
+    // https://www.gatsbyjs.com/docs/how-to/routing/adding-markdown-pages/
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/media/markdown`,
+        name: `markdown`,
+      },
+    },
+    `gatsby-transformer-remark`,
+
     // IMAGE
     `gatsby-transformer-sharp`,
     {

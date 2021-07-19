@@ -1,8 +1,8 @@
 import React from "react";
 import { useEffect, useState } from "react";
+// APP
+import { Layout } from "../components/layout";
 
-import "../styles/layout.css";
-import { Header } from "../components/header";
 import { GridArt } from "../components/gridart";
 
 import P5Wrapper from "../components/P5Wrapper";
@@ -27,11 +27,11 @@ function Home() {
   }, []);
 
   return (
-    <>
+    <Layout>
       <div>
         <GridArt />
       </div>
-      <P5Manager>
+      {/* <P5Manager>
         <div
           style={{
             position: "absolute",
@@ -42,8 +42,8 @@ function Home() {
         >
           <Buffer comp={home_p5} />
         </div>
-      </P5Manager>
-    </>
+      </P5Manager> */}
+    </Layout>
   );
 }
 
@@ -65,9 +65,9 @@ function sketch(p) {
 
   p.draw = () => {
     p.background(0, 0);
-    if (p.mouseIsPressed) {
-      p.clear();
-    }
+    // if (p.mouseIsPressed) {
+    //   p.clear();
+    // }
     let diam = 100;
     let normal = p.sin(p.frameCount * 0.05);
     let size = p.map(normal, -1, 1, 10, 200);
