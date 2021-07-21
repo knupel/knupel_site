@@ -1,12 +1,9 @@
 import React from "react";
+import { useState } from "react";
 // Processing
 import P5Manager from "./P5Manager";
 import P5Wrapper from "./P5Wrapper";
-import { MenuButton } from "./menuButton";
-
-const Button_home = P5Wrapper("bouton a");
-const Button_about = P5Wrapper("bouton b");
-const Button_contact = P5Wrapper("bouton c");
+import { MenuButton } from "./menu_button";
 
 const menu_style = size => {
   return {
@@ -15,14 +12,40 @@ const menu_style = size => {
   };
 };
 
-export function Menu(props) {
+// transform, parse object list to REACT COMPONENT
+function MenuElem({ list }) {
+  const res = [];
+  list.map(elem =>
+    res.push(
+      <MenuButton comp={elem.comp} label={elem.label} what={elem.what} />
+    )
+  );
+  return <>{res}</>;
+}
+
+export function Menu({ content }) {
+  const names = ["0", "1", "2"];
+  const [button, set_button] = useState([]);
+
+  // SET MENU
+  if (button.length === 0) {
+    content.menu.map(elem => {
+      const obj = {
+        comp: P5Wrapper(elem.name),
+        label: elem.label,
+        what: elem.what,
+      };
+      button.push(obj);
+      set_button(button);
+    });
+  }
+
+  // DISPLAY
   return (
     <div>
       <P5Manager>
         <div style={menu_style(100)}>
-          <MenuButton comp={Button_home} label="HOME" what="/" />
-          <MenuButton comp={Button_about} label="ABOUT" what="/about" />
-          <MenuButton comp={Button_contact} label="CONTACT" what="/contact" />
+          <MenuElem list={button} />
         </div>
       </P5Manager>
     </div>

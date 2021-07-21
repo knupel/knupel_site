@@ -1,23 +1,20 @@
 import React from "react";
 
-import PropTypes from "prop-types";
-import { Link } from "gatsby";
 import { Menu } from "./menu";
 
 import "../css/header.css";
 
-const Header = ({ siteTitle }) => (
-  <header>
-    <Menu />
-  </header>
-);
+const menu =
+  '{ "menu": [' +
+  '{"name": "home", "label": "HOME", "what": "/"},' +
+  '{"name": "about", "label": "ABOUT", "what": "/about"},' +
+  '{"name": "contact", "label": "CONTACT", "what": "/contact"}]}';
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-};
-
-Header.defaultProps = {
-  siteTitle: ``,
-};
-
-export default Header;
+export default function Header() {
+  const menu_parse = JSON.parse(menu);
+  return (
+    <header>
+      <Menu content={menu_parse} />
+    </header>
+  );
+}
