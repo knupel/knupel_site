@@ -45,8 +45,8 @@ function MenuElem({ list, active_index, set_active_index }) {
   return <>{res}</>;
 }
 
-function MenuSub({ elem, active_index }) {
-  const { index } = useContext(MenuContext);
+function MenuSub({ elem }) {
+  const { index, active_index } = useContext(MenuContext);
   console.log("4 MenuSub", active_index);
   // console.log("index, active_index", index, active_index);
   if (index === active_index) {
@@ -56,13 +56,13 @@ function MenuSub({ elem, active_index }) {
   }
 }
 
-function MenuDeploy({ list, active_index }) {
+function MenuDeploy({ list }) {
   const res = [];
   list.map((elem, index) => {
     res.push(
-      <MenuContext.Provider key={index} value={{ index, active_index }}>
-        <MenuSub elem={elem} active_index={active_index} />
-      </MenuContext.Provider>
+      <MenuContext.Consumer>
+        <MenuSub elem={elem} />
+      </MenuContext.Consumer>
     );
   });
   return <>{res}</>;
@@ -109,7 +109,7 @@ export function Menu({ content }) {
             set_active_index={set_active_index}
           />
         </div>
-        <MenuDeploy list={button} active_index={active_index} />
+        <MenuDeploy list={button} />
       </P5Manager>
     </div>
   );
