@@ -15,31 +15,19 @@ export function MenuButton(props) {
   // context button
   const { index, active_index, set_active_index } = useContext(MenuContext);
   let { available } = useContext(ButtonContext);
-  // let is_active = index === active_index;
-  // let { available } = useContext(ButtonContext);
   // context procesing
   const dispatch = useContext(P5DispatchContext);
-  // const { x, y, z } = useContext(P5StateContext);
-  const [state_x, set_state_x] = useState(0);
   //sketch data
   let buf_data = {
     title: props.label,
   };
-  // console.log("buf_data", buf_data);
 
   const what_can_i_do = event => {
-    // context menu
-    // const { index, active_index, set_active_index } = useContext(MenuContext);
-    // let is_active = index === active_index;
-    // let { available } = useContext(ButtonContext);
-
     event.preventDefault();
 
     if (typeof props.what === "string" || props.what instanceof String) {
       // selected
       if (available) {
-        // console.log("je suis là -------------------------------");
-        // console.log("je suis là active index", active_index);
         set_active_index(index);
       }
       // rest
