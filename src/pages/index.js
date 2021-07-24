@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 // APP
 import { Layout } from "../components/layout";
 
-import { GridArt } from "../components/gridart";
+import { GridAll } from "../components/grid/grid_all";
 
 import P5Wrapper from "../components/P5Wrapper";
 import P5Manager from "../components/P5Manager";
@@ -29,7 +29,7 @@ function Home() {
   return (
     <Layout>
       <div>
-        <GridArt />
+        <GridAll />
       </div>
       {/* <P5Manager>
         <div

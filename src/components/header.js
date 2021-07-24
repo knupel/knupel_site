@@ -4,17 +4,12 @@ import { Menu } from "./menu";
 
 import "../css/header.css";
 
-const menu =
-  '{ "menu": [' +
-  '{"name": "home", "label": "HOME", "what": "/"},' +
-  '{"name": "about", "label": "ABOUT", "what": "/about"},' +
-  '{"name": "contact", "label": "CONTACT", "what": "/contact"}]}';
+import menu from "../../media/json/menu.json";
 
 export default function Header() {
-  const menu_parse = JSON.parse(menu);
   return (
     <header>
-      <Menu content={menu_parse} />
+      <Menu content={menu} />
     </header>
   );
 }

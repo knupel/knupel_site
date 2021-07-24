@@ -1,0 +1,28 @@
+{
+  "menu": [
+    { "id": 0, "name": "home", "label": "KNUPEL", "what": "/" },
+    {
+      "id": 3,
+      "name": "galery",
+      "label": "GALERY",
+      "what": "submenu",
+      "menu": [
+        { "id": 30, "name": "art", "label": "ART", "what": "/art" },
+        {
+          "id": 31,
+          "name": "graphic design",
+          "label": "GRAPHIC DESIGN",
+          "what": "/graphicdesign"
+        },
+        {
+          "id": 32,
+          "name": "photography",
+          "label": "PHOTOGRAPHY",
+          "what": "/photo"
+        }
+      ]
+    },
+    { "id": 1, "name": "about", "label": "ABOUT", "what": "/about" },
+    { "id": 2, "name": "contact", "label": "CONTACT", "what": "/contact" }
+  ]
+}
