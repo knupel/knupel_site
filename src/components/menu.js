@@ -32,6 +32,8 @@ function MenuElem({ list, active_index, set_active_index }) {
             label={elem.label}
             what={elem.what}
             menu={elem.menu}
+            width={elem.width}
+            height={elem.height}
           />
         </ButtonContext.Provider>
       </MenuContext.Provider>
@@ -67,8 +69,7 @@ function MenuDeploy({ list, active_index, set_active_index }) {
 
 const menu_style = size => {
   return {
-    display: "grid",
-    gridTemplateColumns: `repeat(auto-fill, minmax(${size}px, 1fr))`,
+    display: "flex",
   };
 };
 
@@ -84,6 +85,8 @@ function MenuCalc({ content }) {
         label: elem.label,
         what: elem.what,
         menu: elem.menu,
+        width: elem.width,
+        height: elem.height,
       };
       button.push(obj);
       set_button(button);
