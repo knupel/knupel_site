@@ -1,28 +1,62 @@
 {
   "menu": [
-    { "id": 0, "name": "home", "label": "KNUPEL", "what": "/" },
+    {
+      "id": 0,
+      "name": "home",
+      "label": "KNUPEL",
+      "what": "/",
+      "width": 60,
+      "height": 30
+    },
     {
       "id": 3,
       "name": "galery",
       "label": "GALERY",
       "what": "submenu",
+      "width": 60,
+      "height": 30,
       "menu": [
-        { "id": 30, "name": "art", "label": "ART", "what": "/art" },
+        {
+          "id": 30,
+          "name": "art",
+          "label": "ART",
+          "what": "/art",
+          "width": 40,
+          "height": 30
+        },
         {
           "id": 31,
           "name": "graphic design",
           "label": "GRAPHIC DESIGN",
-          "what": "/graphicdesign"
+          "what": "/graphicdesign",
+          "width": 120,
+          "height": 30
         },
         {
           "id": 32,
           "name": "photography",
           "label": "PHOTOGRAPHY",
-          "what": "/photo"
+          "what": "/photo",
+          "width": 110,
+          "height": 30
         }
       ]
     },
-    { "id": 1, "name": "about", "label": "ABOUT", "what": "/about" },
-    { "id": 2, "name": "contact", "label": "CONTACT", "what": "/contact" }
+    {
+      "id": 1,
+      "name": "about",
+      "label": "ABOUT",
+      "what": "/about",
+      "width": 50,
+      "height": 30
+    },
+    {
+      "id": 2,
+      "name": "contact",
+      "label": "CONTACT",
+      "what": "/contact",
+      "width": 65,
+      "height": 30
+    }
   ]
 }

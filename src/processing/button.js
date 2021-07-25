@@ -5,41 +5,48 @@ export function button(p5) {
   let inside_is = false;
 
   p5.setup = function () {
-    p5.createCanvas(150, 100);
-
-    size.set(p5.width / 2, p5.height / 2);
-    pos.set(size.x / 2, size.y / 2);
-    rounded = p5.height / 2;
+    if (p5.data === undefined) {
+      p5.createCanvas(150, 25);
+    } else {
+      p5.createCanvas(p5.data.width, p5.data.height);
+    }
+    set_info_size(p5.width, p5.height);
+    p5.windowResized = () => {
+      p5.resizeCanvas(p5.data.width, p5.data.height);
+      set_info_size(p5.data.width, p5.data.height);
+    };
   };
 
   p5.draw = function () {
+    if (p5.width !== p5.data.width || p5.height !== p5.data.height) {
+      p5.resizeCanvas(p5.data.width, p5.data.height);
+      set_info_size(p5.width, p5.height);
+    }
+
     let cursor = p5.createVector(p5.mouseX, p5.mouseY);
 
     inside_is = inside_rect(cursor, pos, size);
     p5.clear();
     if (inside_is) {
       animation_in(pos, size, rounded);
-    } else {
-      animation_out(pos, size, rounded);
     }
     show_label();
   };
 
-  function animation_in(s) {
-    let ratio = p5.abs(p5.sin(p5.frameCount * 0.05));
-
-    let diam = p5.map(ratio, 0, 1, p5.height / 5, p5.height / 2);
-    let x = p5.width / 2;
-    let y = p5.height / 2;
-    p5.noStroke();
-    p5.fill("cyan");
-    p5.ellipse(x, y, diam, diam);
+  function set_info_size(width, height) {
+    size.set(width / 2, height / 2);
+    pos.set(size.x / 2, size.y / 2);
+    rounded = height / 2;
   }
 
-  function animation_out(p, s, r) {
+  function animation_in(s) {
+    let ratio_a = p5.abs(p5.sin(p5.frameCount * 0.05));
+    let ratio_b = p5.abs(p5.sin(p5.frameCount * 0.03));
+    let ax = ratio_a * p5.width;
+    let bx = ratio_b * p5.width;
     p5.noStroke();
-    p5.fill("magenta");
-    p5.rect(p.x, p.y, s.x, s.y, r);
+    p5.fill("cyan");
+    p5.quad(ax, 0, bx, 0, bx, p5.height, ax, p5.height);
   }
 
   function show_label() {

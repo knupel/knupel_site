@@ -20,6 +20,8 @@ export function MenuButton(props) {
   //sketch data
   let buf_data = {
     title: props.label,
+    width: props.width,
+    height: props.height,
   };
 
   const what_can_i_do = event => {
@@ -36,16 +38,6 @@ export function MenuButton(props) {
           navigate(-1);
         } else {
           navigate(props.what);
-        }
-      } else if (props.what.startsWith("submenu")) {
-        if (props.what === "submenu") {
-          // console.log("props.what", props.what);
-          // console.log("props.menu", props.menu);
-          // return (
-          //   <header>
-          //     <Menu content={props.menu} />
-          //   </header>
-          // );
         }
       }
     }
