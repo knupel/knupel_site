@@ -57,6 +57,14 @@
       "what": "/contact",
       "width": 65,
       "height": 30
+    },
+    {
+      "id": 3,
+      "name": "shop",
+      "label": "SHOP",
+      "what": "/shop",
+      "width": 50,
+      "height": 30
     }
   ]
 }
