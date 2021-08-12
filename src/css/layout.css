@@ -12,6 +12,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   /* color: magenta; */
   color: hsla(0, 0%, 0%, 0.8);
+  background: yellow;
   font-family: Helvetica Neue, -apple-system, sans-serif;
   font-weight: normal;
   word-wrap: break-word;

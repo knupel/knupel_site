@@ -1,28 +1,18 @@
-.picto_style {
-  width: 25px;
+.txt {
+  width: 150px;
+  /* align-items: center; */
+  /* margin: auto; */
 }
 
-/* .design {
-  display: flex;
-  height: 40px;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: left;
-} */
+.picto {
+  width: 25px;
+  margin: auto;
+}
+.picto_container {
+  width: 30px;
+  /* border: 1px solid white; */
+}
 
-.design {
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-columns: repeat(12, 1fr);
-  justify-content: flex-start;
-  height: 40px;
-  align-items: center;
-  /* grid-auto-columns: auto;
-  grid-auto-columns: minmax(100px, auto);
-  grid-auto-rows: minmax(50px, auto);
-  grid-auto-rows: auto;
-  grid-auto-rows: 12% 12% 12%;
-  height: 40px;
-  justify-content: flex-start;
-  align-items: center; */
+.bar {
+  display: flex;
 }

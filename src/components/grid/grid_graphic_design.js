@@ -12,7 +12,10 @@ export function GridGraphicDesign() {
   const { allFile } = useStaticQuery(
     graphql`
       query {
-        allFile(filter: { sourceInstanceName: { eq: "graphic_design_hd" } }) {
+        allFile(
+          filter: { sourceInstanceName: { eq: "graphic_design_hd" } }
+          sort: { fields: base, order: ASC }
+        ) {
           edges {
             node {
               extension

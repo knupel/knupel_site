@@ -4,8 +4,9 @@ import { Layout } from "../components/layout";
 import { Form } from "../components/form";
 
 import "../css/shop.css";
-
-// markup
+// https://www.gatsbyjs.com/tutorial/ecommerce-tutorial/#example-2-import-skus-via-source-plugin
+// https://www.gatsbyjs.com/plugins/gatsby-source-stripe/
+// example shop https://gatsby-ecommerce-stripe.netlify.app/
 const Shop = () => {
   return (
     <Layout>
