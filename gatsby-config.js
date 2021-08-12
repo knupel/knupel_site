@@ -104,6 +104,7 @@ module.exports = {
       options: {
         // Available options and their defaults:
         base64Width: 20,
+        placeholder: `dominantColor`,
         // forceBase64Format: ``, // valid formats: png,jpg,webp // don't work on OSX
         useMozJpeg: process.env.GATSBY_JPEG_ENCODER === `MOZJPEG`,
         stripMetadata: true,
