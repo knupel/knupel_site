@@ -1,6 +1,8 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import Img from "gatsby-image";
+
+// import Img from "gatsby-image";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const img_grid_style = {
   position: "relative",
@@ -12,15 +14,16 @@ export function GridPhoto() {
   const { allFile } = useStaticQuery(
     graphql`
       query {
-        allFile(filter: { sourceInstanceName: { eq: "photo_hd" } }) {
+        allFile(
+          filter: { sourceInstanceName: { eq: "photo_hd" } }
+          sort: { fields: base, order: ASC }
+        ) {
           edges {
             node {
               extension
               relativePath
               childImageSharp {
-                fluid(maxWidth: 2000, maxHeight: 2000) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(width: 1000, height: 1000)
               }
             }
           }
@@ -32,7 +35,7 @@ export function GridPhoto() {
     <div>
       <div style={img_grid_style}>
         {allFile.edges.map(({ node }) => (
-          <Img fluid={node.childImageSharp.fluid} />
+          <GatsbyImage image={getImage(node)} />
         ))}
       </div>
     </div>

@@ -12,7 +12,10 @@ export function GridArt() {
   const { allFile } = useStaticQuery(
     graphql`
       query {
-        allFile(filter: { sourceInstanceName: { eq: "art_hd" } }) {
+        allFile(
+          filter: { sourceInstanceName: { eq: "art_hd" } }
+          sort: { fields: base, order: ASC }
+        ) {
           edges {
             node {
               extension
