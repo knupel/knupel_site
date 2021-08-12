@@ -1,7 +1,6 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 
-// import Img from "gatsby-image";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const img_grid_style = {
@@ -23,7 +22,7 @@ export function GridPhoto() {
               extension
               relativePath
               childImageSharp {
-                gatsbyImageData(width: 1000, height: 1000)
+                gatsbyImageData(width: 800, height: 800)
               }
             }
           }
