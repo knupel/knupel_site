@@ -18,10 +18,12 @@ export function GridArt() {
         ) {
           edges {
             node {
+              id
+              base
               extension
               relativePath
               childImageSharp {
-                gatsbyImageData(width: 800, height: 800)
+                gatsbyImageData(width: 800, height: 800, placeholder: BLURRED)
               }
             }
           }
@@ -33,7 +35,11 @@ export function GridArt() {
     <div>
       <div style={img_grid_style}>
         {allFile.edges.map(({ node }) => (
-          <GatsbyImage image={getImage(node)} />
+          <GatsbyImage image={getImage(node)} alt={node.base} />
+          // <GatsbyImage
+          //   image={node.childImageSharp.gatsbyImageData}
+          //   alt={node.base}
+          // />
         ))}
       </div>
     </div>

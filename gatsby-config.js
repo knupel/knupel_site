@@ -98,13 +98,15 @@ module.exports = {
     `gatsby-transformer-remark`,
 
     // IMAGE
+    `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-sharp`,
       options: {
         // Available options and their defaults:
         base64Width: 20,
-        placeholder: `dominantColor`,
+        placeholder: `blurred`,
+        breakpoints: [750, 1080, 1366, 1920],
         // forceBase64Format: ``, // valid formats: png,jpg,webp // don't work on OSX
         useMozJpeg: process.env.GATSBY_JPEG_ENCODER === `MOZJPEG`,
         stripMetadata: true,
