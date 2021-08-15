@@ -13,7 +13,10 @@ export function GridGraphicDesign() {
     graphql`
       query {
         allFile(
-          filter: { sourceInstanceName: { eq: "graphic_design_hd" } }
+          filter: {
+            sourceInstanceName: { eq: "all" }
+            dir: { regex: "/graphic_design_hd/" }
+          }
           sort: { fields: base, order: ASC }
         ) {
           edges {

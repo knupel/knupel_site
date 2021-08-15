@@ -7,13 +7,15 @@ const img_grid_style = {
   display: "grid",
   gridTemplateColumns: `repeat(auto-fill, minmax(200px, 1fr))`,
 };
-
 export function GridArt() {
   const { allFile } = useStaticQuery(
     graphql`
       query {
         allFile(
-          filter: { sourceInstanceName: { eq: "art_hd" } }
+          filter: {
+            sourceInstanceName: { eq: "all" }
+            dir: { regex: "/img_art_hd/" }
+          }
           sort: { fields: base, order: ASC }
         ) {
           edges {

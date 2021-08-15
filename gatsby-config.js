@@ -50,6 +50,16 @@ module.exports = {
     },
 
     // FILE SYSTEME
+
+    // all don't work, may be because is not a same level of researches ?
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `all`,
+        path: `${__dirname}/media/visuel`,
+        ignore: [`**/\.*`], // ignore files starting with a dot
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -72,15 +82,6 @@ module.exports = {
       options: {
         name: `photo_hd`,
         path: `${__dirname}/media/visuel/img_photo_hd`,
-        ignore: [`**/\.*`], // ignore files starting with a dot
-      },
-    },
-
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `all_hd`,
-        path: `${__dirname}/media/visuel`,
         ignore: [`**/\.*`], // ignore files starting with a dot
       },
     },

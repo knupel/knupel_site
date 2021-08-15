@@ -12,7 +12,10 @@ const Photo = () => {
     graphql`
       query {
         allFile(
-          filter: { sourceInstanceName: { eq: "photo_hd" } }
+          filter: {
+            sourceInstanceName: { eq: "all" }
+            dir: { regex: "/photo_hd/" }
+          }
           sort: { fields: base, order: ASC }
         ) {
           edges {
@@ -41,9 +44,9 @@ const Photo = () => {
   const setting = {
     background: "black",
     first_is: true,
-    first: "prems",
+    first: "première",
     last_is: false,
-    last: "der",
+    last: "dernière",
     previous_is: true,
     previous: "précédente",
     next_is: true,
