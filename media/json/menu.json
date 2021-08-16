@@ -1,70 +1,81 @@
 {
-  "menu": [
-    {
-      "id": 0,
-      "name": "home",
-      "label": "KNUPEL",
-      "what": "/",
-      "width": 60,
-      "height": 30
-    },
-    {
-      "id": 3,
-      "name": "galery",
-      "label": "GALERY",
-      "what": "submenu",
-      "width": 60,
-      "height": 30,
-      "menu": [
-        {
-          "id": 30,
-          "name": "art",
-          "label": "ART",
-          "what": "/art",
-          "width": 40,
-          "height": 30
-        },
-        {
-          "id": 31,
-          "name": "graphic design",
-          "label": "GRAPHIC DESIGN",
-          "what": "/graphicdesign",
-          "width": 120,
-          "height": 30
-        },
-        {
-          "id": 32,
-          "name": "photography",
-          "label": "PHOTOGRAPHY",
-          "what": "/photo",
-          "width": 110,
-          "height": 30
-        }
-      ]
-    },
-    {
-      "id": 1,
-      "name": "about",
-      "label": "ABOUT",
-      "what": "/about",
-      "width": 50,
-      "height": 30
-    },
-    {
-      "id": 2,
-      "name": "contact",
-      "label": "CONTACT",
-      "what": "/contact",
-      "width": 65,
-      "height": 30
-    },
-    {
-      "id": 3,
-      "name": "shop",
-      "label": "SHOP",
-      "what": "/shop",
-      "width": 50,
-      "height": 30
-    }
-  ]
+  "global": {
+    "setting": { "text_size": 16 },
+    "menu": [
+      {
+        "id": 0,
+        "name": "home",
+        "label_en": "KNUPEL",
+        "label_fr": "KNUPEL",
+        "what": "/",
+        "width": 60,
+        "height": 30
+      },
+      {
+        "id": 3,
+        "name": "galery",
+        "label_en": "GALLERY",
+        "label_fr": "GALERIE",
+        "what": "submenu",
+        "width": 60,
+        "height": 30,
+        "menu": [
+          {
+            "id": 30,
+            "name": "art",
+            "label_en": "ART",
+            "label_fr": "ART",
+            "what": "/art",
+            "width": 40,
+            "height": 30
+          },
+          {
+            "id": 31,
+            "name": "graphic design",
+            "label_en": "GRAPHIC DESIGN",
+            "label_fr": "GRAPHISME",
+            "what": "/graphicdesign",
+            "width": 120,
+            "height": 30
+          },
+          {
+            "id": 32,
+            "name": "photography",
+            "label_en": "PHOTOGRAPHY",
+            "label_fr": "PHOTOGRAPHIE",
+            "what": "/photo",
+            "width": 110,
+            "height": 30
+          }
+        ]
+      },
+      {
+        "id": 1,
+        "name": "about",
+        "label_en": "ABOUT",
+        "label_fr": "À PROPOS",
+        "what": "/about",
+        "width": 50,
+        "height": 30
+      },
+      {
+        "id": 2,
+        "name": "contact",
+        "label_en": "CONTACT",
+        "label_fr": "CONTACT",
+        "what": "/contact",
+        "width": 65,
+        "height": 30
+      },
+      {
+        "id": 3,
+        "name": "shop",
+        "label_en": "SHOP",
+        "label_fr": "BOUTIQUE",
+        "what": "/shop",
+        "width": 50,
+        "height": 30
+      }
+    ]
+  }
 }

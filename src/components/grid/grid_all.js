@@ -13,7 +13,7 @@ export function GridAll() {
     graphql`
       query {
         allFile(
-          filter: { sourceInstanceName: { eq: "all" } }
+          filter: { sourceInstanceName: { eq: "all" }, base: { regex: "/__/" } }
           sort: { fields: base, order: ASC }
         ) {
           edges {

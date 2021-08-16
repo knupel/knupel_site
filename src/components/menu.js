@@ -6,6 +6,8 @@ import P5Manager from "./P5Manager";
 import P5Wrapper from "./P5Wrapper";
 import { MenuButton } from "./menu_button";
 
+import LangContext from "../pages/index";
+
 // https://www.robinwieruch.de/react-usecontext-hook
 // https://reactjs.org/docs/hooks-reference.html#usecontext
 
@@ -15,6 +17,7 @@ export const ButtonContext = createContext(null);
 
 // transform, parse object list to REACT COMPONENT
 function MenuElem({ list, active_index, set_active_index }) {
+  const lang = useContext(LangContext);
   // results
   const res = [];
   list.map((elem, index) => {
@@ -82,7 +85,7 @@ function MenuCalc({ content }) {
     content.menu.map(elem => {
       const obj = {
         comp: P5Wrapper(elem.name),
-        label: elem.label,
+        label: elem.label_fr,
         what: elem.what,
         menu: elem.menu,
         width: elem.width,
@@ -115,5 +118,5 @@ function MenuCalc({ content }) {
 }
 
 export function Menu({ content }) {
-  return <MenuCalc content={content} />;
+  return <MenuCalc content={content.global} />;
 }
