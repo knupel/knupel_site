@@ -1,8 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
 
-// import { useState } from "react";
-import { createContext } from "react";
 // APP
 import { Layout } from "../components/layout";
 
@@ -11,12 +9,14 @@ import { GridAll } from "../components/grid/grid_all";
 import P5Wrapper from "../components/P5Wrapper";
 import P5Manager from "../components/P5Manager";
 
-export const LangContext = createContext(null);
-
 const home_p5 = P5Wrapper("home p5");
 
 function Home() {
-  const [lang, set_lang] = useState("fr");
+  // https://blog.greenroots.info/gatsby-the-window-is-not-defined-error-what-and-how-to-fix-it
+  const brownser_is = typeof window !== "undefined";
+  if (brownser_is) {
+    localStorage.setItem("lang", "fr");
+  }
 
   const [scroll, set_scroll] = useState([]);
   const grab_scroll = () => {
@@ -34,12 +34,11 @@ function Home() {
   }, []);
 
   return (
-    <LangContext.Provider value={{ lang, set_lang }}>
-      <Layout>
-        <div>
-          <GridAll />
-        </div>
-        {/* <P5Manager>
+    <Layout>
+      <div>
+        <GridAll />
+      </div>
+      {/* <P5Manager>
         <div
           style={{
             position: "absolute",
@@ -51,8 +50,7 @@ function Home() {
           <Buffer comp={home_p5} />
         </div>
       </P5Manager> */}
-      </Layout>
-    </LangContext.Provider>
+    </Layout>
   );
 }
 

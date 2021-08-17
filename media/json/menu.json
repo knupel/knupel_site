@@ -1,6 +1,6 @@
 {
   "global": {
-    "setting": { "text_size": 16 },
+    "setting": { "text_size": 16, "ratio_width": 0.6, "ratio_height": 1.5 },
     "menu": [
       {
         "id": 0,

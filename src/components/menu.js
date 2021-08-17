@@ -6,8 +6,6 @@ import P5Manager from "./P5Manager";
 import P5Wrapper from "./P5Wrapper";
 import { MenuButton } from "./menu_button";
 
-import LangContext from "../pages/index";
-
 // https://www.robinwieruch.de/react-usecontext-hook
 // https://reactjs.org/docs/hooks-reference.html#usecontext
 
@@ -17,7 +15,6 @@ export const ButtonContext = createContext(null);
 
 // transform, parse object list to REACT COMPONENT
 function MenuElem({ list, active_index, set_active_index }) {
-  const lang = useContext(LangContext);
   // results
   const res = [];
   list.map((elem, index) => {
@@ -45,17 +42,18 @@ function MenuElem({ list, active_index, set_active_index }) {
   return <>{res}</>;
 }
 
-function MenuSub({ elem }) {
+function MenuSub({ menu, setting }) {
   const { index, active_index } = useContext(MenuContext);
-  if (index === active_index && elem.menu !== undefined) {
+  // console.log("0 MenuSub(): elem.name", elem.name);
+  if (index === active_index && menu !== undefined && setting !== undefined) {
     // here we make a recursive loop to go deeper in the tree menu
-    return <MenuCalc content={elem} />;
+    return <MenuCalc menu={menu.menu} setting={setting} />;
   } else {
     return <div></div>;
   }
 }
 
-function MenuDeploy({ list, active_index, set_active_index }) {
+function MenuDeploy({ list, setting, active_index, set_active_index }) {
   const res = [];
   list.map((elem, index) => {
     res.push(
@@ -63,7 +61,7 @@ function MenuDeploy({ list, active_index, set_active_index }) {
         key={index}
         value={{ index, active_index, set_active_index }}
       >
-        <MenuSub elem={elem} />
+        <MenuSub menu={elem} setting={setting} />
       </MenuContext.Provider>
     );
   });
@@ -76,20 +74,46 @@ const menu_style = size => {
   };
 };
 
-function MenuCalc({ content }) {
+function set_label(elem) {
+  const brownser_is = typeof window !== "undefined";
+  let lang = "fr";
+  if (brownser_is) {
+    lang = localStorage.getItem("lang");
+    if (lang === "fr") {
+      return elem.label_fr;
+    } else {
+      return elem.label_en;
+    }
+  }
+}
+
+function set_width(label, setting) {
+  if (label !== undefined) {
+    return label.length * setting.text_size * setting.ratio_width;
+  } else return 100;
+}
+
+/**
+ * MENU CALC
+ */
+function MenuCalc({ menu, setting }) {
   const [button, set_button] = useState([]);
   const [active_index, set_active_index] = useState(-1);
 
   // SET MENU
-  if (button.length === 0 && content.menu !== undefined) {
-    content.menu.map(elem => {
+  // console.log("MenuCalc(): menu", menu);
+  if (button.length === 0 && menu !== undefined && setting !== undefined) {
+    let height = setting.text_size * setting.ratio_height;
+    menu.map(elem => {
+      const label = set_label(elem);
+      let width = set_width(label, setting);
       const obj = {
         comp: P5Wrapper(elem.name),
-        label: elem.label_fr,
+        label: label,
         what: elem.what,
         menu: elem.menu,
-        width: elem.width,
-        height: elem.height,
+        width: width,
+        height: height,
       };
       button.push(obj);
       set_button(button);
@@ -109,6 +133,7 @@ function MenuCalc({ content }) {
         </div>
         <MenuDeploy
           list={button}
+          setting={setting}
           active_index={active_index}
           set_active_index={set_active_index}
         />
@@ -118,5 +143,7 @@ function MenuCalc({ content }) {
 }
 
 export function Menu({ content }) {
-  return <MenuCalc content={content.global} />;
+  return (
+    <MenuCalc menu={content.global.menu} setting={content.global.setting} />
+  );
 }
