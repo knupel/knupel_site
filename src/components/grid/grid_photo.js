@@ -19,10 +19,12 @@ export function GridPhoto() {
         ) {
           edges {
             node {
+              id
+              base
               extension
               relativePath
               childImageSharp {
-                gatsbyImageData(width: 800, height: 800)
+                gatsbyImageData(width: 800, height: 800, placeholder: BLURRED)
               }
             }
           }
@@ -34,7 +36,7 @@ export function GridPhoto() {
     <div>
       <div style={img_grid_style}>
         {allFile.edges.map(({ node }) => (
-          <GatsbyImage image={getImage(node)} />
+          <GatsbyImage image={getImage(node)} alt={node.base} />
         ))}
       </div>
     </div>

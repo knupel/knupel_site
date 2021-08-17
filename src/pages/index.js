@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
+
 // APP
 import { Layout } from "../components/layout";
 
@@ -11,6 +12,12 @@ import P5Manager from "../components/P5Manager";
 const home_p5 = P5Wrapper("home p5");
 
 function Home() {
+  // https://blog.greenroots.info/gatsby-the-window-is-not-defined-error-what-and-how-to-fix-it
+  const brownser_is = typeof window !== "undefined";
+  if (brownser_is) {
+    localStorage.setItem("lang", "fr");
+  }
+
   const [scroll, set_scroll] = useState([]);
   const grab_scroll = () => {
     const x = window.pageXOffset;

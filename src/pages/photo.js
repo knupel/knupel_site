@@ -3,13 +3,59 @@ import * as React from "react";
 import { Layout } from "../components/layout";
 import { GridPhoto } from "../components/grid/grid_photo";
 
-// markup
+import { Diaporama } from "../components/diaporama";
+
+import { useStaticQuery, graphql } from "gatsby";
+
 const Photo = () => {
+  const { allFile } = useStaticQuery(
+    graphql`
+      query {
+        allFile(
+          filter: {
+            sourceInstanceName: { eq: "all" }
+            dir: { regex: "/photo_hd/" }
+          }
+          sort: { fields: base, order: ASC }
+        ) {
+          edges {
+            node {
+              id
+              base
+              extension
+              relativePath
+              childImageSharp {
+                gatsbyImageData(
+                  width: 800
+                  height: 500
+                  placeholder: BLURRED
+                  quality: 90
+                  blurredOptions: { width: 100 }
+                  transformOptions: { cropFocus: CENTER, fit: CONTAIN }
+                )
+              }
+            }
+          }
+        }
+      }
+    `
+  );
+
+  const setting = {
+    background: "black",
+    first_is: true,
+    first: "première",
+    last_is: false,
+    last: "dernière",
+    previous_is: true,
+    previous: "précédente",
+    next_is: true,
+    next: "suivante",
+  };
+
   return (
     <Layout>
-      <div>
-        <GridPhoto />
-      </div>
+      <Diaporama allFile={allFile} setting={setting} />
     </Layout>
   );
 };

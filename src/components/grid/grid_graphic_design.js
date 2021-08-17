@@ -13,15 +13,20 @@ export function GridGraphicDesign() {
     graphql`
       query {
         allFile(
-          filter: { sourceInstanceName: { eq: "graphic_design_hd" } }
+          filter: {
+            sourceInstanceName: { eq: "all" }
+            dir: { regex: "/graphic_design_hd/" }
+          }
           sort: { fields: base, order: ASC }
         ) {
           edges {
             node {
+              id
+              base
               extension
               relativePath
               childImageSharp {
-                gatsbyImageData(width: 800, height: 800)
+                gatsbyImageData(width: 800, height: 800, placeholder: BLURRED)
               }
             }
           }
@@ -33,7 +38,7 @@ export function GridGraphicDesign() {
     <div>
       <div style={img_grid_style}>
         {allFile.edges.map(({ node }) => (
-          <GatsbyImage image={getImage(node)} />
+          <GatsbyImage image={getImage(node)} alt={node.base} />
         ))}
       </div>
     </div>
