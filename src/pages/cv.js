@@ -1,9 +1,10 @@
 import React from "react";
+// app
 import { Layout } from "../components/layout";
 import { get_lang } from "../utils/misc";
-
-import { graphql, useStaticQuery } from "gatsby";
 import "../css/about.css";
+// gatsby
+import { graphql, useStaticQuery } from "gatsby";
 
 function DisplaySelectedMD({ node, title }) {
   if (node.frontmatter.title.includes(title)) {
@@ -32,7 +33,6 @@ function DisplayMD() {
     }
   `);
 
-  // const lang = "cv " + get_lang();
   const lang = `cv ${get_lang()}`;
 
   return (
