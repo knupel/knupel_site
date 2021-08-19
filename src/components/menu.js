@@ -1,6 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { createContext, useContext } from "react";
+// app
+import { get_lang } from "../utils/misc";
 // Processing
 import P5Manager from "./P5Manager";
 import P5Wrapper from "./P5Wrapper";
@@ -68,34 +70,31 @@ function MenuDeploy({ list, setting, active_index, set_active_index }) {
   return <>{res}</>;
 }
 
-const menu_style = size => {
-  return {
-    display: "flex",
-  };
-};
-
 function set_label(elem) {
-  const brownser_is = typeof window !== "undefined";
-  let lang = "fr";
-  if (brownser_is) {
-    lang = localStorage.getItem("lang");
-    if (lang === "fr") {
-      return elem.label_fr;
-    } else {
-      return elem.label_en;
-    }
+  if (get_lang() === "fr") {
+    return elem.label_fr;
+  } else {
+    return elem.label_en;
   }
 }
 
 function set_width(label, setting) {
   if (label !== undefined) {
-    return label.length * setting.text_size * setting.ratio_width;
+    let width = label.length * setting.text_size * setting.ratio_width;
+    if (width < setting.min_width) return setting.min_width;
+    else return width;
   } else return 100;
 }
 
 /**
  * MENU CALC
  */
+const menu_style = () => {
+  return {
+    display: "flex",
+  };
+};
+
 function MenuCalc({ menu, setting }) {
   const [button, set_button] = useState([]);
   const [active_index, set_active_index] = useState(-1);
@@ -124,7 +123,7 @@ function MenuCalc({ menu, setting }) {
   return (
     <div>
       <P5Manager>
-        <div style={menu_style(100)}>
+        <div style={menu_style()}>
           <MenuElem
             list={button}
             active_index={active_index}

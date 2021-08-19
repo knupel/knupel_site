@@ -24,15 +24,9 @@ export function MenuButton(props) {
     height: props.height,
   };
 
-  const what_can_i_do = event => {
+  const click = event => {
     event.preventDefault();
-
     if (typeof props.what === "string" || props.what instanceof String) {
-      // selected
-      if (available) {
-        set_active_index(index);
-      }
-      // rest
       if (props.what.startsWith("/")) {
         if (props.what === "/back") {
           navigate(-1);
@@ -43,8 +37,19 @@ export function MenuButton(props) {
     }
   };
 
+  const over = event => {
+    event.preventDefault();
+    if (typeof props.what === "string" || props.what instanceof String) {
+      if (available) {
+        set_active_index(index);
+      } else {
+        set_active_index(-1);
+      }
+    }
+  };
+
   return (
-    <div onClick={what_can_i_do}>
+    <div style={{ cursor: "pointer" }} onClick={click} onMouseOver={over}>
       <props.comp sketch={button} data={buf_data}></props.comp>
     </div>
   );

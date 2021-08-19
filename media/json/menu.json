@@ -1,80 +1,85 @@
 {
   "global": {
-    "setting": { "text_size": 16, "ratio_width": 0.6, "ratio_height": 1.5 },
+    "setting": {
+      "text_size": 16,
+      "ratio_width": 0.6,
+      "ratio_height": 1.5,
+      "min_width": 60
+    },
     "menu": [
       {
         "id": 0,
         "name": "home",
         "label_en": "KNUPEL",
         "label_fr": "KNUPEL",
-        "what": "/",
-        "width": 60,
-        "height": 30
+        "what": "/"
       },
       {
-        "id": 3,
+        "id": 2,
         "name": "galery",
         "label_en": "GALLERY",
         "label_fr": "GALERIE",
         "what": "submenu",
-        "width": 60,
-        "height": 30,
         "menu": [
           {
-            "id": 30,
+            "id": 10,
             "name": "art",
             "label_en": "ART",
             "label_fr": "ART",
-            "what": "/art",
-            "width": 40,
-            "height": 30
+            "what": "/art"
           },
           {
-            "id": 31,
+            "id": 11,
             "name": "graphic design",
             "label_en": "GRAPHIC DESIGN",
             "label_fr": "GRAPHISME",
-            "what": "/graphicdesign",
-            "width": 120,
-            "height": 30
+            "what": "/graphicdesign"
           },
           {
-            "id": 32,
+            "id": 12,
             "name": "photography",
             "label_en": "PHOTOGRAPHY",
             "label_fr": "PHOTOGRAPHIE",
-            "what": "/photo",
-            "width": 110,
-            "height": 30
+            "what": "/photo"
           }
         ]
       },
       {
-        "id": 1,
+        "id": 2,
         "name": "about",
         "label_en": "ABOUT",
         "label_fr": "À PROPOS",
-        "what": "/about",
-        "width": 50,
-        "height": 30
-      },
-      {
-        "id": 2,
-        "name": "contact",
-        "label_en": "CONTACT",
-        "label_fr": "CONTACT",
-        "what": "/contact",
-        "width": 65,
-        "height": 30
+        "what": "submenu",
+        "menu": [
+          {
+            "id": 20,
+            "name": "story",
+            "label_en": "SHORT STORY",
+            "label_fr": "PETITE HISTOIRE",
+            "what": "/story"
+          },
+          {
+            "id": 21,
+            "name": "cv",
+            "label_en": "CV",
+            "label_fr": "CV",
+            "what": "/cv"
+          }
+        ]
       },
       {
         "id": 3,
+        "name": "contact",
+        "label_en": "CONTACT",
+        "label_fr": "CONTACT",
+        "what": "/contact"
+      },
+      {
+        "id": 4,
         "name": "shop",
         "label_en": "SHOP",
         "label_fr": "BOUTIQUE",
-        "what": "/shop",
-        "width": 50,
-        "height": 30
+        "what": "/shop"
       }
     ]
   }
