@@ -60,31 +60,31 @@ module.exports = {
         ignore: [`**/\.*`], // ignore files starting with a dot
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `art_hd`,
-        path: `${__dirname}/media/visuel/img_art_hd`,
-        ignore: [`**/\.*`], // ignore files starting with a dot
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     name: `art_hd`,
+    //     path: `${__dirname}/media/visuel/img_art_hd`,
+    //     ignore: [`**/\.*`], // ignore files starting with a dot
+    //   },
+    // },
 
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `graphic_design_hd`,
-        path: `${__dirname}/media/visuel/img_graphic_design_hd`,
-        ignore: [`**/\.*`], // ignore files starting with a dot
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `photo_hd`,
-        path: `${__dirname}/media/visuel/img_photo_hd`,
-        ignore: [`**/\.*`], // ignore files starting with a dot
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     name: `graphic_design_hd`,
+    //     path: `${__dirname}/media/visuel/img_graphic_design_hd`,
+    //     ignore: [`**/\.*`], // ignore files starting with a dot
+    //   },
+    // },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     name: `photo_hd`,
+    //     path: `${__dirname}/media/visuel/img_photo_hd`,
+    //     ignore: [`**/\.*`], // ignore files starting with a dot
+    //   },
+    // },
 
     // MARKDOWN
     // https://dev.to/alexalexyang/how-to-use-markdown-in-pages-in-gatsby-5dee
