@@ -1,18 +1,24 @@
 .txt {
-  width: 150px;
+  /* width: 150px; */
   /* align-items: center; */
   /* margin: auto; */
+  padding: 0 0.5em;
+  align-self: center;
+  justify-self: center;
 }
 
 .picto {
   width: 25px;
-  margin: auto;
+  /* margin: auto; */
+  transform: translate(12%, 25%);
 }
 .picto_container {
   width: 30px;
+  height: 40px;
   /* border: 1px solid white; */
 }
 
-.bar {
+.f_bar {
+  background: magenta;
   display: flex;
 }

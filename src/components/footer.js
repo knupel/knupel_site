@@ -23,33 +23,33 @@ function ContentText({ content }) {
 export function Footer() {
   return (
     <>
-      <footer>
-        <div className="bar">
-          <ContentText
-            content={
-              <div>
-                {``}© {new Date().getFullYear()} Knupel
-                {``}
-              </div>
-            }
-          />
+      {/* <footer> */}
+      <div className="f_bar">
+        <ContentText
+          content={
+            <div>
+              {``}© 2021-{new Date().getFullYear()} Knupel
+              {``}
+            </div>
+          }
+        />
 
-          <ButtonPicto
-            src={picto_instagram}
-            cssPicto="picto"
-            cssPictoContainer="picto_container"
-            alt="instagram"
-            href="https://www.instagram.com/knupel_art/"
-          />
-          <ButtonPicto
-            src={picto_github}
-            cssPicto="picto"
-            cssPictoContainer="picto_container"
-            alt="github"
-            href="https://github.com/StanLepunK"
-          />
-        </div>
-      </footer>
+        <ButtonPicto
+          src={picto_instagram}
+          cssPicto="picto"
+          cssPictoContainer="picto_container"
+          alt="instagram"
+          href="https://www.instagram.com/knupel_art/"
+        />
+        <ButtonPicto
+          src={picto_github}
+          cssPicto="picto"
+          cssPictoContainer="picto_container"
+          alt="github"
+          href="https://github.com/StanLepunK"
+        />
+      </div>
+      {/* </footer> */}
     </>
   );
 }
