@@ -46,7 +46,6 @@ function MenuElem({ list, active_index, set_active_index }) {
 
 function MenuSub({ menu, setting }) {
   const { index, active_index } = useContext(MenuContext);
-  // console.log("0 MenuSub(): elem.name", elem.name);
   if (index === active_index && menu !== undefined && setting !== undefined) {
     // here we make a recursive loop to go deeper in the tree menu
     return <MenuCalc menu={menu.menu} setting={setting} />;

@@ -41,6 +41,13 @@
             "label_en": "PHOTOGRAPHY",
             "label_fr": "PHOTOGRAPHIE",
             "what": "/photo"
+          },
+          {
+            "id": 13,
+            "name": "drawing",
+            "label_en": "DRAWING",
+            "label_fr": "DESSIN",
+            "what": "/drawing"
           }
         ]
       },
