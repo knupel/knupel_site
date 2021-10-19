@@ -1,14 +1,15 @@
+// REACT
 import React from "react";
 import { useEffect, useState } from "react";
 
 // APP
 import { Layout } from "../components/layout";
+// const r = require("./../lib/r_constants_colour");
 
+//KNUPEL
 import { GridAll } from "../components/grid/grid_all";
-
 import P5Wrapper from "../components/P5Wrapper";
 import P5Manager from "../components/P5Manager";
-
 const home_p5 = P5Wrapper("home p5");
 
 function Home() {

@@ -30,7 +30,7 @@ function DisplayMD() {
   return (
     <div>
       {data.allMarkdownRemark.edges.map(({ node }) => (
-        <SelectMD node={node} title={lang} />
+        <SelectMD className="global" node={node} title={lang} />
       ))}
     </div>
   );
