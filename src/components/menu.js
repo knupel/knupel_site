@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { createContext, useContext } from "react";
 // app
 import { get_lang } from "../utils/misc";

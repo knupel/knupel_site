@@ -5,8 +5,8 @@ import { useState, useContext } from "react";
 import { navigate } from "gatsby";
 // PROCESSING
 import { button } from "../processing/button";
-import { P5DispatchContext, P5StateContext } from "./P5Manager";
-import { Menu } from "./menu";
+// import { P5DispatchContext, P5StateContext } from "./P5Manager";
+// import { Menu } from "./menu";
 // MENU
 import { MenuContext } from "./menu";
 import { ButtonContext } from "./menu";
@@ -16,14 +16,21 @@ export function MenuButton(props) {
   const { index, active_index, set_active_index } = useContext(MenuContext);
   let { available } = useContext(ButtonContext);
   // context procesing
-  const dispatch = useContext(P5DispatchContext);
+  // const dispatch = useContext(P5DispatchContext);
   //sketch data
   let buf_data = {
     title: props.label,
     width: props.width,
     height: props.height,
   };
+  // console.log("open link", props.what);
+  // if(props.what.startsWith("http")) {
+  //   console.log("BINGO START",props.what);
+  // }
 
+  // if(new RegExp("http").test(props.what)) {
+  //   console.log("BINGO REGEX",props.what);
+  // }
   const click = event => {
     event.preventDefault();
     if (typeof props.what === "string" || props.what instanceof String) {
@@ -31,8 +38,11 @@ export function MenuButton(props) {
         if (props.what === "/back") {
           navigate(-1);
         } else {
+          // console.log(" navigate(props.what)", props.what);
           navigate(props.what);
         }
+      } else if(new RegExp("http").test(props.what)) {
+        window.open(props.what, "_blank");
       }
     }
   };

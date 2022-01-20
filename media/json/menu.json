@@ -87,6 +87,13 @@
         "label_en": "SHOP",
         "label_fr": "BOUTIQUE",
         "what": "/shop"
+      },
+      {
+        "id": 5,
+        "name": "lab",
+        "label_en": "LABORATORY",
+        "label_fr": "LABORATOIRE",
+        "what": "https://stanlab.netlify.app/"
       }
     ]
   }
