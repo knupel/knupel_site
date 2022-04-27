@@ -23,14 +23,7 @@ export function MenuButton(props) {
     width: props.width,
     height: props.height,
   };
-  // console.log("open link", props.what);
-  // if(props.what.startsWith("http")) {
-  //   console.log("BINGO START",props.what);
-  // }
 
-  // if(new RegExp("http").test(props.what)) {
-  //   console.log("BINGO REGEX",props.what);
-  // }
   const click = event => {
     event.preventDefault();
     if (typeof props.what === "string" || props.what instanceof String) {
@@ -38,7 +31,6 @@ export function MenuButton(props) {
         if (props.what === "/back") {
           navigate(-1);
         } else {
-          // console.log(" navigate(props.what)", props.what);
           navigate(props.what);
         }
       } else if(new RegExp("http").test(props.what)) {
