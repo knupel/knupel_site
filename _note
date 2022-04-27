@@ -8,10 +8,11 @@ PAS FAIT
 
 KO
 react 17 move to 18
+"gatsby-transformer-remark": "^5.13.0",
 
 ???
 
-"gatsby-transformer-remark": "^5.13.0",
+
 
 OK
 "gatsby": "^4.13.0",
