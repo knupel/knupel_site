@@ -1,4 +1,19 @@
 Netlify chrash to deploy
 
-when it's 
+PAS FAIT
+"gatsby-plugin-manifest": "^4.5.2", > "gatsby-plugin-manifest": "^4.13.0",
+"gatsby-plugin-sharp": "^4.5.2",
+"gatsby-transformer-sharp": "^4.5.0",
+"gatsby-plugin-image": "^2.5.2",
+
+KO
 react 17 move to 18
+
+???
+
+"gatsby-transformer-remark": "^5.13.0",
+
+OK
+"gatsby": "^4.13.0",
+"gatsby-source-filesystem": "^4.13.0",
+"gatsby-source-mongodb": "^4.13.0",
