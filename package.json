@@ -22,7 +22,7 @@
     "gatsby-source-filesystem": "^4.13.0",
     "gatsby-source-mongodb": "^4.13.0",
     "gatsby-transformer-remark": "^5.13.0",
-    "gatsby-transformer-sharp": "^4.5.0",
+    "gatsby-transformer-sharp": "^4.13.0",
     "p5": "^1.4.1",
     "react": "^17.0.2",
     "react-bootstrap": "^2.1.1",
