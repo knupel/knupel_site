@@ -46,7 +46,7 @@ export function Footer() {
           cssPicto="picto"
           cssPictoContainer="picto_container"
           alt="github"
-          href="https://github.com/StanLepunK"
+          href="https://github.com/knupel"
         />
       </div>
       {/* </footer> */}
