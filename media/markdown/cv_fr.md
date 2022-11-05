@@ -11,7 +11,7 @@ title: "cv fr"
 - Artiste
 - Codeur
 - Frontend développeur
-- Graphsite indépendant
+- Graphiste indépendant
 - Enseignant [ ECV ]
 
 ## 2019-2021
@@ -19,14 +19,14 @@ title: "cv fr"
 - Étudiant [ École 42 ]
 - Artiste
 - Codeur
-- Graphsite indépendant
+- Graphiste indépendant
 - Enseignant [ ECV ]
 
 ## 2015-2019
 
 - Artiste
 - Codeur
-- Graphsite indépendant
+- Graphiste indépendant
 
 ## 2013-2015
 
