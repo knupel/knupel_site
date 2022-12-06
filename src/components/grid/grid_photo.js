@@ -13,10 +13,7 @@ export function GridPhoto() {
   const { allFile } = useStaticQuery(
     graphql`
       query {
-        allFile(
-          filter: { sourceInstanceName: { eq: "photo_hd" } }
-          sort: { fields: base, order: ASC }
-        ) {
+        allFile(filter: {sourceInstanceName: {eq: "photo_hd"}}, sort: {base: ASC}) {
           edges {
             node {
               id

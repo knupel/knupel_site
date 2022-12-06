@@ -14,7 +14,7 @@ export function GridAll() {
       query {
         allFile(
           filter: { sourceInstanceName: { eq: "all" }, base: { regex: "/__/" } }
-          sort: { fields: base, order: ASC }
+          sort: {base: ASC}
         ) {
           edges {
             node {
