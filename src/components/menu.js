@@ -99,7 +99,6 @@ function MenuCalc({ menu, setting }) {
   const [active_index, set_active_index] = useState(-1);
 
   // SET MENU
-  // console.log("MenuCalc(): menu", menu);
   if (button.length === 0 && menu !== undefined && setting !== undefined) {
     let height = setting.text_size * setting.ratio_height;
     menu.map(elem => {

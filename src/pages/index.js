@@ -9,8 +9,8 @@ import { Layout } from "../components/layout";
 //KNUPEL
 import { GridAll } from "../components/grid/grid_all";
 import P5Wrapper from "../components/P5Wrapper";
-import P5Manager from "../components/P5Manager";
-const home_p5 = P5Wrapper("home p5");
+// import P5Manager from "../components/P5Manager";
+// const home_p5 = P5Wrapper("home p5");
 
 function Home() {
   // https://blog.greenroots.info/gatsby-the-window-is-not-defined-error-what-and-how-to-fix-it
@@ -82,7 +82,6 @@ function sketch(p) {
     // hue
     let hue = p.abs(p.sin(p.frameCount * 0.006));
 
-    let rounded = 10;
     p.noStroke();
     p.fill(hue, 1, 1, 0.02);
     let x = p.mouseX;
