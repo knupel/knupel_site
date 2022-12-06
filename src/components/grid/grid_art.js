@@ -12,11 +12,8 @@ export function GridArt() {
     graphql`
       query {
         allFile(
-          filter: {
-            sourceInstanceName: { eq: "all" }
-            dir: { regex: "/img_art_hd/" }
-          }
-          sort: { fields: base, order: ASC }
+          filter: {sourceInstanceName: {eq: "all"}, dir: {regex: "/img_art_hd/"}}
+          sort: {base: ASC}
         ) {
           edges {
             node {
