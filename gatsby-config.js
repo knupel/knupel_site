@@ -9,7 +9,7 @@ module.exports = {
     siteUrl: `https://www.knupel.art`,
     title: `Knupel`,
     description: `Herr Knupel est ici`,
-    author: `@stanlepunk`,
+    author: `knupel`,
   },
 
   plugins: [
