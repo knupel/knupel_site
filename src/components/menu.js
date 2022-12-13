@@ -69,6 +69,11 @@ function MenuDeploy({ list, setting, active_index, set_active_index }) {
   return <>{res}</>;
 }
 
+
+//////////////////
+// ANNEXE
+///////////////////
+
 function set_label(elem) {
   if (get_lang() === "fr") {
     return elem.label_fr;
@@ -85,14 +90,25 @@ function set_width(label, setting) {
   } else return 100;
 }
 
-/**
- * MENU CALC
- */
-const menu_style = () => {
-  return {
-    display: "flex",
-  };
+//////////////
+// STYLE
+///////////////
+const menu_grid_style = (button_list) => {
+  const res = {display: "flex"};
+  button_list.map(elem => {
+    if(elem.level === 0) {
+      res.backgroundColor = "magenta";
+    } else {
+      res.backgroundColor = "yellow";
+    }
+  });
+  return res;
 };
+
+
+/////////////////
+// MAIN FUNCTION
+/////////////////
 
 function MenuCalc({ menu, setting }) {
   const [button, set_button] = useState([]);
@@ -111,6 +127,7 @@ function MenuCalc({ menu, setting }) {
         menu: elem.menu,
         width: width,
         height: height,
+        level: elem.level,
       };
       button.push(obj);
       set_button(button);
@@ -121,7 +138,7 @@ function MenuCalc({ menu, setting }) {
   return (
     <div>
       <P5Manager>
-        <div style={menu_style()}>
+        <div style={menu_grid_style(button)}>
           <MenuElem
             list={button}
             active_index={active_index}
