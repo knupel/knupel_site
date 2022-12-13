@@ -9,6 +9,7 @@
     "menu": [
       {
         "id": 0,
+        "level": 0,
         "name": "home",
         "label_en": "KNUPEL",
         "label_fr": "KNUPEL",
@@ -16,6 +17,7 @@
       },
       {
         "id": 2,
+        "level": 0,
         "name": "galery",
         "label_en": "GALLERY",
         "label_fr": "GALERIE",
@@ -23,6 +25,7 @@
         "menu": [
           {
             "id": 10,
+            "level": 1,
             "name": "art",
             "label_en": "ART",
             "label_fr": "ART",
@@ -30,6 +33,7 @@
           },
           {
             "id": 11,
+            "level": 1,
             "name": "graphic design",
             "label_en": "GRAPHIC DESIGN",
             "label_fr": "GRAPHISME",
@@ -37,6 +41,7 @@
           },
           {
             "id": 12,
+            "level": 1,
             "name": "photography",
             "label_en": "PHOTOGRAPHY",
             "label_fr": "PHOTOGRAPHIE",
@@ -44,6 +49,7 @@
           },
           {
             "id": 13,
+            "level": 1,
             "name": "drawing",
             "label_en": "DRAWING",
             "label_fr": "DESSIN",
@@ -53,6 +59,7 @@
       },
       {
         "id": 2,
+        "level": 0,
         "name": "about",
         "label_en": "ABOUT",
         "label_fr": "À PROPOS",
@@ -60,6 +67,7 @@
         "menu": [
           {
             "id": 20,
+            "level": 1,
             "name": "story",
             "label_en": "SHORT STORY",
             "label_fr": "PETITE HISTOIRE",
@@ -67,6 +75,7 @@
           },
           {
             "id": 21,
+            "level": 1,
             "name": "cv",
             "label_en": "CV",
             "label_fr": "CV",
@@ -76,6 +85,7 @@
       },
       {
         "id": 3,
+        "level": 0,
         "name": "contact",
         "label_en": "CONTACT",
         "label_fr": "CONTACT",
@@ -83,6 +93,7 @@
       },
       {
         "id": 4,
+        "level": 0,
         "name": "shop",
         "label_en": "SHOP",
         "label_fr": "BOUTIQUE",
@@ -90,10 +101,11 @@
       },
       {
         "id": 5,
+        "level": 0,
         "name": "lab",
         "label_en": "LABORATORY",
         "label_fr": "LABORATOIRE",
-        "what": "https://knupelgeheimlabor.gatsbyjs.io/"
+        "what": "https://stanlab.netlify.app/"
       }
     ]
   }
