@@ -15,6 +15,7 @@ import { MenuButton } from "./menu_button";
 export const MenuContext = createContext(null);
 export const ButtonContext = createContext(null);
 
+
 // transform, parse object list to REACT COMPONENT
 function MenuElem({ list, active_index, set_active_index }) {
   // results
@@ -28,15 +29,17 @@ function MenuElem({ list, active_index, set_active_index }) {
         value={{ index, active_index, set_active_index }}
       >
         <ButtonContext.Provider value={{ available }}>
-          <MenuButton
-            index={index}
-            comp={elem.comp}
-            label={elem.label}
-            what={elem.what}
-            menu={elem.menu}
-            width={elem.width}
-            height={elem.height}
-          />
+          <div style={{height: elem.height}}>
+            <MenuButton
+              index={index}
+              comp={elem.comp}
+              label={elem.label}
+              what={elem.what}
+              menu={elem.menu}
+              width={elem.width}
+              height={elem.height}
+            />
+         </div>
         </ButtonContext.Provider>
       </MenuContext.Provider>
     );
@@ -44,17 +47,17 @@ function MenuElem({ list, active_index, set_active_index }) {
   return <>{res}</>;
 }
 
-function MenuSub({ menu, setting }) {
+function MenuSub({ menu, setting, height }) {
   const { index, active_index } = useContext(MenuContext);
   if (index === active_index && menu !== undefined && setting !== undefined) {
     // here we make a recursive loop to go deeper in the tree menu
-    return <MenuCalc menu={menu.menu} setting={setting} />;
+    return <MenuCalc menu={menu.menu} setting={setting} height={height}/>;
   } else {
     return <div></div>;
   }
 }
 
-function MenuDeploy({ list, setting, active_index, set_active_index }) {
+function MenuDeploy({ list, setting,height, active_index, set_active_index }) {
   const res = [];
   list.map((elem, index) => {
     res.push(
@@ -62,7 +65,7 @@ function MenuDeploy({ list, setting, active_index, set_active_index }) {
         key={index}
         value={{ index, active_index, set_active_index }}
       >
-        <MenuSub menu={elem} setting={setting} />
+        <MenuSub menu={elem} setting={setting} height={height}/>
       </MenuContext.Provider>
     );
   });
@@ -85,8 +88,9 @@ function set_label(elem) {
 function set_width(label, setting) {
   if (label !== undefined) {
     let width = label.length * setting.text_size * setting.ratio_width;
-    if (width < setting.min_width) return setting.min_width;
-    else return width;
+    if (width < setting.min_width) {
+      return setting.min_width;
+    } else return width;
   } else return 100;
 }
 
@@ -97,9 +101,9 @@ const menu_grid_style = (button_list) => {
   const res = {display: "flex"};
   button_list.map(elem => {
     if(elem.level === 0) {
-      res.backgroundColor = "magenta";
-    } else {
       res.backgroundColor = "yellow";
+    } else {
+      res.backgroundColor = "magenta";
     }
   });
   return res;
@@ -110,13 +114,12 @@ const menu_grid_style = (button_list) => {
 // MAIN FUNCTION
 /////////////////
 
-function MenuCalc({ menu, setting }) {
+function MenuCalc({ menu, setting, height }) {
   const [button, set_button] = useState([]);
   const [active_index, set_active_index] = useState(-1);
 
   // SET MENU
   if (button.length === 0 && menu !== undefined && setting !== undefined) {
-    let height = setting.text_size * setting.ratio_height;
     menu.map(elem => {
       const label = set_label(elem);
       let width = set_width(label, setting);
@@ -148,6 +151,7 @@ function MenuCalc({ menu, setting }) {
         <MenuDeploy
           list={button}
           setting={setting}
+          height={height}
           active_index={active_index}
           set_active_index={set_active_index}
         />
@@ -157,7 +161,8 @@ function MenuCalc({ menu, setting }) {
 }
 
 export function Menu({ content }) {
+  let height_bar = content.global.setting.text_size * content.global.setting.ratio_height;
   return (
-    <MenuCalc menu={content.global.menu} setting={content.global.setting} />
+    <MenuCalc menu={content.global.menu} setting={content.global.setting} height={height_bar} />
   );
 }

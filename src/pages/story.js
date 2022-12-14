@@ -2,7 +2,7 @@ import React from "react";
 // gatsby
 import { graphql, useStaticQuery } from "gatsby";
 // app
-import { Layout } from "../components/layout";
+import { Layout } from "../components/struct/layout";
 import { SelectMD } from "../components/markdown";
 import { get_lang } from "../utils/misc";
 import "../css/about.css";

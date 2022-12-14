@@ -1,10 +1,10 @@
 import React from "react";
 
-import { Menu } from "./menu";
+import { Menu } from "../menu";
 
-import "../css/header.css";
+import "./header.css";
 
-import menu from "../../media/json/menu.json";
+import menu from "./../../../media/json/menu.json";
 
 export default function Header() {
   return (
