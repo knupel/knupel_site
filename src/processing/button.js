@@ -4,6 +4,7 @@ export function button(p5) {
   let rounded = 0;
   let inside_is = false;
 
+
   p5.setup = function () {
     if (p5.data === undefined) {
       p5.createCanvas(150, 25);
@@ -53,7 +54,13 @@ export function button(p5) {
     p5.noStroke();
     p5.fill(0);
     p5.textAlign(p5.CENTER, p5.CENTER);
-    p5.text(p5.data.title, p5.width / 2, p5.height / 2);
+    p5.textSize(14);
+    p5.textFont("aglet-mono, mono");
+    // p5.textStyle(p5.LIGHT);
+    // p5.textStyle(p5.NORMAL);
+    // p5.textStyle(p5.SEMIBOLD);
+    p5.textStyle(p5.BOLD);
+    p5.text(p5.data.label, p5.width / 2, p5.height / 2);
   }
 }
 

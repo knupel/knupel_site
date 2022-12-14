@@ -1,9 +1,9 @@
 import React from "react";
 
-import "../css/footer.css";
+import "./footer.css";
 
-import picto_github from "../../media/picto/github.svg";
-import picto_instagram from "../../media/picto/instagram.svg";
+import picto_github from "../../../media/picto/github.svg";
+import picto_instagram from "../../../media/picto/instagram.svg";
 
 function ButtonPicto({ src, cssPicto, cssPictoContainer, alt, href }) {
   return (
@@ -18,19 +18,17 @@ function ButtonPicto({ src, cssPicto, cssPictoContainer, alt, href }) {
 }
 function ContentText({ content }) {
   return <div className="txt">{content}</div>;
-  // return <div style={{ margin: "auto" }}>{content}</div>;
 }
 export function Footer() {
   return (
     <>
-      {/* <footer> */}
       <div className="f_bar">
         <ContentText
           content={
-            <div>
+            <h4>
               {``}© 2021-{new Date().getFullYear()} Knupel
               {``}
-            </div>
+            </h4>
           }
         />
 
@@ -49,7 +47,6 @@ export function Footer() {
           href="https://github.com/knupel"
         />
       </div>
-      {/* </footer> */}
     </>
   );
 }

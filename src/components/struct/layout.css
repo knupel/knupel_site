@@ -13,8 +13,8 @@ body {
   /* color: magenta; */
   color: hsla(0, 0%, 0%, 0.8);
   background: yellow;
-  font-family: Helvetica Neue, -apple-system, sans-serif;
-  font-weight: normal;
+  font-family: "aglet-mono",Helvetica Neue, -apple-system, sans-serif;
+  font-weight: 400;
   word-wrap: break-word;
   font-kerning: normal;
   -moz-font-feature-settings: "kern", "liga", "clig", "calt";
@@ -27,9 +27,9 @@ h1 {
   margin: 0;
   padding: 0;
   margin-bottom: 0.5rem;
-  font-family: "Malaga", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+  font-family: "aglet-mono", Helvetica Neue, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  font-weight: bold;
+  font-weight: 700;
   text-rendering: optimizeLegibility;
   font-size: 2.25rem;
   line-height: 1.1;
@@ -42,12 +42,38 @@ h2 {
   padding: 0;
   margin-bottom: 0.5rem;
   color: inherit;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: "aglet-mono",-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  font-weight: bold;
+  font-weight: 700;
+  text-rendering: optimizeLegibility;
+  font-size: 1.4rem;
+  line-height: 1.1;
+}
+
+h3 {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 0.5rem;
+  color: inherit;
+  font-family: "aglet-mono", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-weight: 700;
   text-rendering: optimizeLegibility;
   font-size: 1.3rem;
-  line-height: 1.1;
+  /* line-height: 1.1; */
+}
+
+h4 {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 0.5rem;
+  color: inherit;
+  font-family: "aglet-mono", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+  font-size: 1.1rem;
+  /* line-height: 1.1; */
 }
 
 p {
@@ -55,8 +81,9 @@ p {
   padding: 0;
   margin-bottom: 0.5rem;
   color: inherit;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: "aglet-mono", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-weight: 400;
   font-size: 0.7rem;
 }
 

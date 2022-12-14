@@ -1,6 +1,6 @@
 // REACT
 import React from "react";
-import { useState, useContext } from "react";
+import { useContext } from "react";
 // GATSBY
 import { navigate } from "gatsby";
 // PROCESSING
@@ -19,7 +19,7 @@ export function MenuButton(props) {
   // const dispatch = useContext(P5DispatchContext);
   //sketch data
   let buf_data = {
-    title: props.label,
+    label: props.label,
     width: props.width,
     height: props.height,
   };

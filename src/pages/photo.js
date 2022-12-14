@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { Layout } from "../components/layout";
+import { Layout } from "../components/struct/layout";
 import { GridPhoto } from "../components/grid/grid_photo";
 
 import { Diaporama } from "../components/diaporama";

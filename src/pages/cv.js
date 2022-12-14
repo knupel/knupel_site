@@ -1,6 +1,6 @@
 import React from "react";
 // app
-import { Layout } from "../components/layout";
+import { Layout } from "../components/struct/layout";
 import { get_lang } from "../utils/misc";
 import "../css/about.css";
 // gatsby

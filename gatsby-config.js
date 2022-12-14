@@ -3,6 +3,8 @@
  *
  * See: https://www.gatsbyjs.com/docs/gatsby-config/
  */
+require("dotenv").config();
+
 
 module.exports = {
   siteMetadata: {
@@ -13,6 +15,18 @@ module.exports = {
   },
 
   plugins: [
+
+    // FONT
+    {
+      resolve: "gatsby-plugin-web-font-loader",
+      options: {
+        typekit: {
+          id: process.env.TYPEKIT_ID,
+        },
+      },
+    },
+
+
     // MANIFEST
     {
       resolve: `gatsby-plugin-manifest`,
