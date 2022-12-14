@@ -3,7 +3,7 @@ import * as React from "react";
 import { Layout } from "../components/struct/layout";
 import { GridPhoto } from "../components/grid/grid_photo";
 
-import { Diaporama } from "../components/diaporama";
+import { Diaporama } from "../components/diaporama/diaporama";
 
 import { useStaticQuery, graphql } from "gatsby";
 

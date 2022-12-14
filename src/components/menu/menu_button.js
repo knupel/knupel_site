@@ -4,7 +4,7 @@ import { useContext } from "react";
 // GATSBY
 import { navigate } from "gatsby";
 // PROCESSING
-import { button } from "../processing/button";
+import { button } from "./../../processing/button";
 // import { P5DispatchContext, P5StateContext } from "./P5Manager";
 // import { Menu } from "./menu";
 // MENU
