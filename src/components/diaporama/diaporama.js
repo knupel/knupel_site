@@ -1,10 +1,19 @@
+/**
+ * Diaporama
+ * v 0.0.1
+ * 2021-2022
+ * by @knupel
+ * https://www.knupel.art/
+ * stan[at]knupel.art
+ * 
+ * */
 import * as React from "react";
 
 import { useState, createContext, useContext } from "react";
 
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-import "../css/diaporama.css";
+import "./diaporama.css";
 
 export const DiapoContext = createContext(null);
 
