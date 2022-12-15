@@ -4,8 +4,8 @@ import { createContext, useContext } from "react";
 // app
 import { get_lang } from "../../utils/misc";
 // Processing
-import P5Manager from "../p5js/P5Manager";
-import P5Wrapper from "../p5js/P5Wrapper";
+import P5Manager from "../processing/P5Manager";
+import P5Wrapper from "../processing/P5Wrapper";
 import { MenuButton } from "./menu_button";
 
 // https://www.robinwieruch.de/react-usecontext-hook
