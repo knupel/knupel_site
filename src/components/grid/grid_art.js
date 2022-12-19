@@ -1,6 +1,13 @@
+/**
+ * GRID ART
+ * 2021-2022
+ * v 0.1.0
+ * 
+ */
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+// APP
+import ImageZoom from "./grid_image_zoom";
 
 const img_grid_style = {
   position: "relative",
@@ -34,11 +41,7 @@ export function GridArt() {
     <div>
       <div style={img_grid_style}>
         {allFile.edges.map(({ node }) => (
-          <GatsbyImage image={getImage(node)} alt={node.base} />
-          // <GatsbyImage
-          //   image={node.childImageSharp.gatsbyImageData}
-          //   alt={node.base}
-          // />
+          <ImageZoom node={node}/>
         ))}
       </div>
     </div>

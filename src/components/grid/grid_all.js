@@ -1,6 +1,13 @@
+/**
+ * GRID ALL
+ * 2021-2022
+ * v 0.1.0
+ * 
+ */
+
 import React from "react";
+import ImageZoom from "./grid_image_zoom";
 import { useStaticQuery, graphql } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const img_grid_style = {
   position: "relative",
@@ -35,32 +42,9 @@ export function GridAll() {
     <div>
       <div style={img_grid_style}>
         {allFile.edges.map(({ node }) => (
-          <GatsbyImage image={getImage(node)} alt={node.base} />
+          <ImageZoom node={node}/>
         ))}
       </div>
     </div>
   );
 }
-
-// import React from "react";
-// import { useStaticQuery, graphql } from "gatsby";
-
-// import { GridGraphicDesign } from "./grid_graphic_design";
-// import { GridPhoto } from "./grid_photo";
-// import { GridArt } from "./grid_art";
-
-// const img_grid_style = {
-//   position: "relative",
-//   display: "grid",
-//   gridTemplateColumns: `repeat(auto-fill, minmax(200px, 1fr))`,
-// };
-
-// export function GridAll() {
-//   return (
-//     <div>
-//       <GridArt />
-//       <GridGraphicDesign />
-//       <GridPhoto />
-//     </div>
-//   );
-// }
