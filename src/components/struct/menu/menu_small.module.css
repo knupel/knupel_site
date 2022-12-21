@@ -1,25 +1,20 @@
+.menu_bar {
+  text-align:center;
+  background-color: var(--second_color);
+  position:fixed;
+  width: 100%;
+  z-index: 999;
+}
 
-
-/* :root {
-  --first_color: magenta;
-	--second_color: yellow;
-	--third_color: cyan;
-	--font_color:purple;
-
-	--size_logo: 30px;
-	--size_menu_offset: calc(calc(var(--size_logo) * 0.25) * -1);
-	--height_header: 75px;
-} */
 
 .menu_display {
   z-index: 1;
   width: 100%;
   height: 0;
-  /* display: flex; */
-  /* background-color: magenta; */
   background-color: var(--first_color);
   justify-content: center;
   position: fixed;
+  /* position: absolute; */
   /* animate nav opening details start */
   opacity: 0;
   visibility: hidden;
@@ -30,8 +25,9 @@
 .menu_elem {
   display: flex;
   justify-content: center;
-  color: var(--font_firt_color);
+  color: var(--font_first_color);
   cursor: pointer;
+  height: calc(var(--font_size_menu) *2);
   /* border: solid 1px white; */
 }
 
@@ -47,18 +43,15 @@
   opacity: 1;
   visibility: visible;
   height:100vh;
+  padding: var(--font_size_menu) 0px
+  
 }
 
 
 
-
-
-
-
-
 .toggle_menu {
-  height: 50px;
-  width: 50px;
+  height: calc(var(--font_size_menu) *3);
+  width: calc(var(--font_size_menu) *3);
   z-index: 1;
   background-color: var(--second_color);
   border: 0px;

@@ -5,7 +5,7 @@ import { useContext }  from "react";
 import { MenuBig } from "./menu/menu_big";
 import { MenuSmall }  from "./menu/menu_small";
 import { Window_is_higher_than } from "./../../utils/canvas";
-import { menu_small } from "./header.module.css";
+import { menu_small, menu_big } from "./header.module.css";
 import menu from "./../../../media/json/menu.json";
 import { ContextMenu } from "./../../context/context_menu.js"
 
@@ -19,9 +19,9 @@ export default function Header() {
   if(Window_is_higher_than(780)) {
     switch_off_menu_small();
     return (
-      <header>
+      <div className={menu_big}>
         <MenuBig content={menu} />
-     </header>
+     </div>
     );
   } else {
     return (
