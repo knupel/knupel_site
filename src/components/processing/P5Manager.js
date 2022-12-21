@@ -13,9 +13,8 @@
  */
 import React from "react"
 import PropTypes from "prop-types"
-import { createContext, useContext } from "react"
+import { createContext } from "react"
 import { useReducer } from "react"
-import { useState } from "react"
 
 const init_state = {
   x: 0,

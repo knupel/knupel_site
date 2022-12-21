@@ -61,3 +61,22 @@ export function str_unit_to_number(unit, str) {
     return res;
   } else return null;
 }
+
+
+
+export function set_label(elem) {
+  if (get_lang() === "fr") {
+    return elem.label_fr;
+  } else {
+    return elem.label_en;
+  }
+}
+
+export function set_width(label, setting) {
+  if (label !== undefined) {
+    let width = label.length * setting.font_size * setting.ratio_width;
+    if (width < setting.min_width) {
+      return setting.min_width;
+    } else return width;
+  } else return 100;
+}

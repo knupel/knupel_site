@@ -1,0 +1,9 @@
+/**
+Nothing happen for now !
+*/
+
+.menu_small {
+  grid-area: menu_small;
+  /* grid-column: span 1; */
+  place-items: center;
+}

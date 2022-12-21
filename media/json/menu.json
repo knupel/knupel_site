@@ -1,8 +1,9 @@
 {
   "global": {
     "setting": {
-      "text_size": 16,
-      "ratio_width": 0.6,
+      "font_size": 14,
+      "font_color":"#800080",
+      "ratio_width": 0.7,
       "ratio_height": 1.5,
       "min_width": 60
     },

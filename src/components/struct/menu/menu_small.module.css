@@ -1,0 +1,94 @@
+
+
+/* :root {
+  --first_color: magenta;
+	--second_color: yellow;
+	--third_color: cyan;
+	--font_color:purple;
+
+	--size_logo: 30px;
+	--size_menu_offset: calc(calc(var(--size_logo) * 0.25) * -1);
+	--height_header: 75px;
+} */
+
+.menu_display {
+  z-index: 1;
+  width: 100%;
+  height: 0;
+  /* display: flex; */
+  /* background-color: magenta; */
+  background-color: var(--first_color);
+  justify-content: center;
+  position: fixed;
+  /* animate nav opening details start */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease, height 1s ease;
+  /* border: solid 1px white; */
+}
+
+.menu_elem {
+  display: flex;
+  justify-content: center;
+  color: var(--font_firt_color);
+  cursor: pointer;
+  /* border: solid 1px white; */
+}
+
+.menu_elem:hover {
+  color: var(--font_second_color);
+  /* border: solid 1px white; */
+}
+
+.menu_display_open {
+  /* animate nav opening details end */
+  font-family: var(--font_app);
+  font-weight: 700;
+  opacity: 1;
+  visibility: visible;
+  height:100vh;
+}
+
+
+
+
+
+
+
+
+.toggle_menu {
+  height: 50px;
+  width: 50px;
+  z-index: 1;
+  background-color: var(--second_color);
+  border: 0px;
+  /* border: solid 1px white; */
+}
+
+/* inspired from https://github.com/aru120/hamburgerNav-demo/blob/main/components/Hamburger.js */
+.hamburger_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.hamburger{
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: space-around;
+  flex-flow: column nowrap;
+  /* border: solid 1px white; */
+}
+
+.burger{
+  /* --first_color: magenta; */
+  width: 2rem;
+  height: 2px;
+  border-radius: 2px;
+  /* background-color: magenta; */
+  background-color: var(--first_color);
+  transform-origin: 1px;
+  transition: all 0.3s linear;
+}

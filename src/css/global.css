@@ -1,0 +1,42 @@
+/* body {
+  color: var(--font_color);
+} */
+
+
+
+:root {
+
+  --font_app: "aglet-mono", Helvetica Neue, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+  Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  --font_firt_color:#800080;
+  --font_second_color:yellow;
+
+  --first_color: magenta;
+	--second_color: yellow;
+	--third_color: cyan;
+
+
+	--size_logo: 30px;
+	--size_menu_offset: calc(calc(var(--size_logo) * 0.25) * -1);
+	--height_header: 60px;
+}
+
+
+
+@media (min-width: 640px) {
+  :root {
+    --artwork-grid: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --artwork-grid: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --artwork-grid: repeat(4, 1fr);
+  }
+}
