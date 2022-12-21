@@ -143,6 +143,8 @@ const MenuSmallRendering = ({menu, setting}) => {
     set_list(buf);
   }
 
+
+
   return (
     <Fragment>
       <ToggleMenuSmall/>
