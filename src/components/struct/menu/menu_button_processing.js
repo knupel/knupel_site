@@ -4,25 +4,24 @@ import { useContext } from "react";
 // GATSBY
 import { navigate } from "gatsby";
 // PROCESSING
-import { button } from "./../../processing/button";
-// import { P5DispatchContext, P5StateContext } from "./P5Manager";
-// import { Menu } from "./menu";
+import { button } from "../../../processing/button";
 // MENU
-import { MenuContext } from "./menu";
-import { ButtonContext } from "./menu";
+import { ContextMenuBig } from "./menu_big";
+import { ContextMenuButton } from "./menu_big";
 
-export function MenuButton(props) {
+export function MenuButtonProcessing(props) {
   // context button
-  const { index, active_index, set_active_index } = useContext(MenuContext);
-  let { available } = useContext(ButtonContext);
-  // context procesing
-  // const dispatch = useContext(P5DispatchContext);
+  const { index, set_active_index } = useContext(ContextMenuBig);
+  let { available } = useContext(ContextMenuButton);
   //sketch data
   let buf_data = {
     label: props.label,
+    font_size: props.font_size,
+    font_color:props.font_color,
     width: props.width,
     height: props.height,
   };
+
 
   const click = event => {
     event.preventDefault();
@@ -49,7 +48,6 @@ export function MenuButton(props) {
       }
     }
   };
-
   return (
     <div style={{ cursor: "pointer" }} onClick={click} onMouseOver={over}>
       <props.comp sketch={button} data={buf_data}></props.comp>

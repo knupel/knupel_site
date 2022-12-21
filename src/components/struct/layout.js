@@ -10,9 +10,18 @@ import PropTypes from "prop-types";
 
 import { useStaticQuery, graphql } from "gatsby";
 
+
 import Header from "./header";
+import { ProviderMenu } from "./../../context/context_menu.js"
 import { Footer } from "./footer";
 import "./layout.css";
+
+
+
+
+
+
+
 
 export function Layout({ children }) {
   const data = useStaticQuery(graphql`
@@ -27,7 +36,9 @@ export function Layout({ children }) {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+      <ProviderMenu>
+        <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+      </ProviderMenu>
       <main style={{ marginTop: 0 }}>{children}</main>
       <Footer />
     </>

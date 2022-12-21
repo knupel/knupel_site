@@ -50,11 +50,27 @@ export function button(p5) {
     p5.quad(ax, 0, bx, 0, bx, p5.height, ax, p5.height);
   }
 
+  function convertFromHexString(hex_str) {
+    if(hex_str === undefined) {
+      return "#000000";
+    }
+    let str = '';
+    const arr = hex_str.split("");
+    for(let i = 0; i< arr.length ;i++) {
+      str += arr[i];
+    }
+    return str;
+  }
+
   function show_label() {
+
     p5.noStroke();
-    p5.fill(0);
+    let hex = convertFromHexString(p5.data.font_color);
+    let c = p5.color(hex);
+    p5.fill(c);
+    p5.textSize(p5.data.font_size);
     p5.textAlign(p5.CENTER, p5.CENTER);
-    p5.textSize(14);
+
     p5.textFont("aglet-mono, mono");
     // p5.textStyle(p5.LIGHT);
     // p5.textStyle(p5.NORMAL);
