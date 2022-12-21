@@ -10,7 +10,8 @@ import { ContextMenu } from "./../../../context/context_menu";
 
 
 
-import {  toggle_menu, 
+import {  menu_bar,
+          toggle_menu, 
           menu_display, menu_display_open, menu_elem,
           hamburger, burger, hamburger_container,
         } from "./menu_small.module.css";
@@ -65,9 +66,9 @@ function ButtonLink({elem}) {
     event.preventDefault();
   };
   return <div className={menu_elem} onClick={click} onMouseOver={over}>{elem.label}</div>
-
-  // return <div style={{ cursor: "pointer"}} onClick={click} onMouseOver={over}>{elem.label}</div>
 }
+
+
 
 function MenuContent({content, setting}) {
   const res = [];
@@ -77,36 +78,7 @@ function MenuContent({content, setting}) {
     );
   });
   return(<>{res}</>)
-
 }
-
-
-const MenuSmallRendering = ({menu, setting}) => {
-  const [list, set_list] = useState(null);
-  if(list === null) {
-    let buf = [];
-    buf = build_menu_list(menu, buf)
-    set_list(buf);
-  }
-
-  return (
-    <Fragment>
-      <div style={{textAlign:`center`}}>
-        <ToggleMenuSmall/>
-      </div>
-      <ShowMenuSmall content={list} setting={setting}/>
-    </Fragment>
-  )
-}
-
-export function MenuSmall({content}) {
-  return (
-    <MenuSmallRendering menu={content.global.menu} setting={content.global.setting}/>  
-  )
-}
-
-
-
 
 // DISPLAY
 ///////////
@@ -160,3 +132,31 @@ const ToggleMenuSmall = () => {
     </button>
   );
 };
+
+
+
+const MenuSmallRendering = ({menu, setting}) => {
+  const [list, set_list] = useState(null);
+  if(list === null) {
+    let buf = [];
+    buf = build_menu_list(menu, buf)
+    set_list(buf);
+  }
+
+  return (
+    <Fragment>
+      <ToggleMenuSmall/>
+      <ShowMenuSmall content={list} setting={setting}/>
+    </Fragment>
+  )
+}
+
+export function MenuSmall({content}) {
+  return (
+    <MenuSmallRendering menu={content.global.menu} setting={content.global.setting}/>  
+  )
+}
+
+
+
+

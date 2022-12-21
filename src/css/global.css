@@ -8,8 +8,11 @@
 
   --font_app: "aglet-mono", Helvetica Neue, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
   Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  --font_firt_color:#800080;
+  --font_first_color:#800080;
   --font_second_color:yellow;
+
+  --font_size_menu:14px;
+  --font_size_current:10px;
 
   --first_color: magenta;
 	--second_color: yellow;

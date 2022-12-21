@@ -1,9 +1,19 @@
 /**
 Nothing happen for now !
 */
+.menu_big {
+  position:fixed;
+  width: 100%;
+  z-index: 999;
+}
 
 .menu_small {
   grid-area: menu_small;
-  /* grid-column: span 1; */
   place-items: center;
+
+  text-align:center;
+  background-color: var(--second_color);
+  position:fixed;
+  width: 100%;
+  z-index: 999;
 }
