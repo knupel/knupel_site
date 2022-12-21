@@ -1,10 +1,10 @@
-.menu_bar {
+/* .menu_bar {
   text-align:center;
   background-color: var(--second_color);
   position:fixed;
   width: 100%;
   z-index: 999;
-}
+} */
 
 
 .menu_display {
@@ -50,8 +50,8 @@
 
 
 .toggle_menu {
-  height: calc(var(--font_size_menu) *3);
-  width: calc(var(--font_size_menu) *3);
+  height: --height_bar_menu_small;
+  width: --height_bar_menu_small;
   z-index: 1;
   background-color: var(--second_color);
   border: 0px;

@@ -1,9 +1,9 @@
-import React from "react";
-import { useEffect } from "react";
+
+import { useEffect, useState, useRef, useLayoutEffect } from "react";
 /**
  * UTILS MISC
- * v 0.2.1
- * 2021-2021
+ * v 0.3.0
+ * 2021-2022
  * */
 
 // constants
@@ -79,4 +79,39 @@ export function set_width(label, setting) {
       return setting.min_width;
     } else return width;
   } else return 100;
+}
+
+
+export function get_css_value(name) {
+  return getComputedStyle(document.documentElement).getPropertyValue(name);
+}
+
+
+
+export function set_canvas(canvas) {
+  // need that to pass gatsby build
+  if (typeof window !== `undefined`) {
+    canvas[0] = window.innerWidth
+    canvas[1] = window.innerHeight
+  }
+}
+
+export function GetWindow() {
+  let canvas = [0, 0]
+  set_canvas(canvas)
+
+  const [size, set_size] = useState(canvas)
+  useRef(size)
+
+  useLayoutEffect(() => {
+    function window_resize(event) {
+      set_canvas(canvas)
+      set_size(canvas[0], canvas[1])
+    }
+    window.addEventListener("resize", window_resize)
+    return () => {
+      window.removeEventListener("resize", window_resize)
+    }
+  }, [canvas])
+  return canvas
 }
