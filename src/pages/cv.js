@@ -1,7 +1,7 @@
 import React from "react";
 // app
 import { Layout } from "../components/struct/layout";
-import { get_lang } from "../utils/misc";
+import { get_lang } from "../utils/utils";
 import "../css/about.css";
 // gatsby
 import { graphql, useStaticQuery } from "gatsby";

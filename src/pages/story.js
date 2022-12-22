@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from "gatsby";
 // app
 import { Layout } from "../components/struct/layout";
 import { SelectMD } from "../components/markdown";
-import { get_lang } from "../utils/misc";
+import { get_lang } from "../utils/utils";
 import "../css/about.css";
 
 function DisplayMD() {
