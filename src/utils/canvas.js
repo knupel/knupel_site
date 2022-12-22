@@ -1,16 +1,14 @@
 /* Window
 * 2021_2022 
-* v 0.1.2
+* v 0.2.0
 */
 
-
 import { useState, useRef, useLayoutEffect } from "react";
-import { browser_is } from './utils'; 
 
 export function set_canvas(canvas) {
   // need that to pass gatsby build
+  const browser_is = typeof window !== "undefined";
   if(browser_is) {
-  // if (typeof window !== `undefined`) {
     canvas[0] = window.innerWidth
     canvas[1] = window.innerHeight
   }

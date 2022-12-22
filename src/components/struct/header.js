@@ -4,12 +4,13 @@ import { useContext, useState }  from "react";
 // APP
 import { MenuBig } from "./menu/menu_big";
 import { MenuSmall }  from "./menu/menu_small";
-import { Window_is_higher_than } from "./../../utils/canvas";
+
 import { menu_small, menu_big } from "./header.module.css";
 import menu from "./../../../media/json/menu.json";
-import { ContextMenu } from "./../../context/context_menu.js"
-import { get_css_value } from "../../utils/utils.js";
+import { ContextMenu } from "./../../context/context_menu.js";
 
+import { get_css_value } from "../../utils/utils.js";
+import { Window_is_higher_than } from "./../../utils/canvas";
 
 
 
@@ -17,8 +18,11 @@ import { get_css_value } from "../../utils/utils.js";
 
 export default function Header() {
   const { switch_off_menu_small } = useContext(ContextMenu);
-  const [size, set_size] = useState(undefined);
-  if(size === undefined) {
+  // const [size, set_size] = useState(undefined);
+  // if(size === undefined) {
+  const [size, set_size] = useState(0);
+  const browser_is = typeof window !== "undefined";
+  if(size === 0 && browser_is) {
     set_size(get_css_value("--window_min"));
   }
   

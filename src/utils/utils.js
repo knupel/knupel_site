@@ -7,12 +7,9 @@
 // REACT
 import { useEffect} from "react";
 
-
-export const browser_is = () => typeof window !== "undefined";
-
-
 // constants
 export function SetConstants(r) {
+  const browser_is = typeof window !== "undefined";
   useEffect(() => {
     if (browser_is) {
       localStorage.setItem("constants", JSON.stringify(r));
@@ -21,8 +18,8 @@ export function SetConstants(r) {
 }
 
 export function get_constants() {
-  const brownser_is = typeof window !== "undefined";
-  if (brownser_is) {
+  const browser_is = typeof window !== "undefined";
+  if (browser_is) {
     const constants = localStorage.getItem("constants");
     return constants !== null ? JSON.parse(constants) : "";
   }
@@ -31,9 +28,9 @@ export function get_constants() {
 
 // language
 export function get_lang() {
-  const brownser_is = typeof window !== "undefined";
+  const browser_is = typeof window !== "undefined";
   let lang = "fr";
-  if (brownser_is) {
+  if (browser_is) {
     lang = localStorage.getItem("lang");
   }
   return lang;
@@ -81,9 +78,10 @@ export function set_label(elem) {
 
 
 export function get_css_value(name) {
+  const browser_is = typeof window !== "undefined";
   if(browser_is) {
     return getComputedStyle(document.documentElement).getPropertyValue(name);
-  } else return;
+  } else return undefined;
 }
 
 
