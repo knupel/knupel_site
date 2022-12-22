@@ -1,15 +1,20 @@
 
-import { useEffect, useState, useRef, useLayoutEffect } from "react";
 /**
  * UTILS MISC
  * v 0.3.0
  * 2021-2022
  * */
+// REACT
+import { useEffect} from "react";
+
+
+export const browser_is = () => typeof window !== "undefined";
+
 
 // constants
-export function SetConstants(r, brownser_is) {
+export function SetConstants(r) {
   useEffect(() => {
-    if (brownser_is) {
+    if (browser_is) {
       localStorage.setItem("constants", JSON.stringify(r));
     }
   }, ["constants", r]);
@@ -72,7 +77,18 @@ export function set_label(elem) {
   }
 }
 
-export function set_width(label, setting) {
+
+
+
+export function get_css_value(name) {
+  if(browser_is) {
+    return getComputedStyle(document.documentElement).getPropertyValue(name);
+  } else return;
+}
+
+
+
+export function set_width_menu(label, setting) {
   if (label !== undefined) {
     let width = label.length * setting.font_size * setting.ratio_width;
     if (width < setting.min_width) {
@@ -82,36 +98,4 @@ export function set_width(label, setting) {
 }
 
 
-export function get_css_value(name) {
-  return getComputedStyle(document.documentElement).getPropertyValue(name);
-}
 
-
-
-export function set_canvas(canvas) {
-  // need that to pass gatsby build
-  if (typeof window !== `undefined`) {
-    canvas[0] = window.innerWidth
-    canvas[1] = window.innerHeight
-  }
-}
-
-export function GetWindow() {
-  let canvas = [0, 0]
-  set_canvas(canvas)
-
-  const [size, set_size] = useState(canvas)
-  useRef(size)
-
-  useLayoutEffect(() => {
-    function window_resize(event) {
-      set_canvas(canvas)
-      set_size(canvas[0], canvas[1])
-    }
-    window.addEventListener("resize", window_resize)
-    return () => {
-      window.removeEventListener("resize", window_resize)
-    }
-  }, [canvas])
-  return canvas
-}

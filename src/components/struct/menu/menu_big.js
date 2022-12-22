@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { createContext, useContext } from "react";
 // app
-import { set_label, set_width } from "../../../utils/misc";
+import { set_label, set_width_menu } from "../../../utils/utils";
 // Processing
 import P5Manager from "../../processing/P5Manager";
 import P5Wrapper from "../../processing/P5Wrapper";
@@ -106,7 +106,7 @@ function MenuBigBuild({ menu, setting, height }) {
   if (button.length === 0 && menu !== undefined && setting !== undefined) {
     menu.map(elem => {
       const label = set_label(elem);
-      let width = set_width(label, setting);
+      let width = set_width_menu(label, setting);
       const obj = {
         comp: P5Wrapper(elem.name),
         label: label,

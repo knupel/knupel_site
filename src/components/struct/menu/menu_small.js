@@ -5,7 +5,7 @@ import { Fragment, useContext, useState } from "react";
 import { navigate } from "gatsby";
 
 // app
-import { set_label } from "../../../utils/misc";
+import { set_label } from "../../../utils/utils";
 import { ContextMenu } from "./../../../context/context_menu";
 
 

@@ -18,7 +18,8 @@ import { ProviderMenu } from "./../../context/context_menu.js"
 import { Footer } from "./footer";
 import "./layout.css";
 
-import { get_css_value, GetWindow } from "./../../utils/misc.js";
+import { get_css_value } from "../../utils/utils.js";
+import { GetWidth } from "../../utils/canvas.js";
 
 
 
@@ -31,9 +32,9 @@ export function Layout({ children }) {
   const [height_bar, set_height_bar] = useState("20px");
   const [size, set_size] = useState(null);
   // setting
-  let window = GetWindow();
-  if(size === null || size !== window[0]) {
-    set_size(window[0]);
+  let width = GetWidth();
+  if(size === null || size !== width) {
+    set_size(width);
   }
   
   if(size < get_css_value("--window_min")) {

@@ -3,26 +3,26 @@
 * v 0.1.2
 */
 
-import { useState, useRef, useLayoutEffect } from "react"
+
+import { useState, useRef, useLayoutEffect } from "react";
+import { browser_is } from './utils'; 
 
 export function set_canvas(canvas) {
   // need that to pass gatsby build
-  if (typeof window !== `undefined`) {
+  if(browser_is) {
+  // if (typeof window !== `undefined`) {
     canvas[0] = window.innerWidth
     canvas[1] = window.innerHeight
   }
 }
 
-export function Get_window() {
-  let canvas = [0, 0]
+export function GetWindow() {
+  let canvas = [0, 0];
   set_canvas(canvas)
 
   const [size, set_size] = useState(canvas)
   useRef(size)
 
-  // MAY be the problem is here ????
-  // Error in function throwOnHydrationMismatch in ./node_modules/react-dom/cjs/react-dom.development.js:12507
-  
   useLayoutEffect(() => {
     function window_resize(event) {
       set_canvas(canvas)
@@ -36,18 +36,22 @@ export function Get_window() {
   return canvas
 }
 
-export function Get_width() {
-  return Get_window()[0];
+
+export function GetWidth() {
+  return GetWindow()[0];
 }
 
-export function Get_height() {
-  return Get_window()[1];
+export function GetHeight() {
+  return GetWindow()[1];
 }
 
 export function Window_is_higher_than(value) {
   let res = false;
-  if(Get_width() > value) {
+  if(GetWidth() > value) {
     res = true;
   }
   return res;
 }
+
+
+
