@@ -7,6 +7,7 @@
 
 import * as React from "react";
 import { useState } from "react";
+
 import PropTypes from "prop-types";
 // GATSBY
 import { useStaticQuery, graphql } from "gatsby";
@@ -20,6 +21,7 @@ import "./layout.css";
 
 import { get_css_value } from "../../utils/utils.js";
 import { GetWidth } from "../../utils/canvas.js";
+// import { GetWindow } from "../../utils/canvas.js";
 
 
 
@@ -29,6 +31,7 @@ import { GetWidth } from "../../utils/canvas.js";
 
 
 export function Layout({ children }) {
+
   const [height_bar, set_height_bar] = useState("20px");
   const [size, set_size] = useState(null);
   // setting
@@ -46,10 +49,9 @@ export function Layout({ children }) {
       set_height_bar(get_css_value("--height_bar_menu_big"));
     }
   }
-
-
-
-  // console.log("height", height_bar);
+  // this solution be used with and it's more usable because you can use value in from one place
+  // in global css
+  // <div style={{height: height_bar}}></div>
 
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -61,17 +63,15 @@ export function Layout({ children }) {
     }
   `);
 
-
-  // let value = getComputedStyle(document.documentElement).getPropertyValue("--height_header");
-
-
-
   return (
     <>
       <ProviderMenu>
         <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       </ProviderMenu>
       <div style={{height: height_bar}}></div>
+      {/* we don't use this design pattern because we must put two values one in the layout.css and the same in global.css
+       because it's not possible to import global value in css @media (min-width: 780px) */}
+      {/* <div className="navbar"></div> */}
       <main style={{ marginTop: 0 }}>{children}</main>
       <Footer />
     </>

@@ -22,7 +22,7 @@
 	--size_menu_offset: calc(calc(var(--size_logo) * 0.25) * -1);
 	
   --height_bar_menu_small: calc(var(--font_size_menu) *3);
-  --height_bar_menu_big: calc(var(--font_size_menu) *1.5);;
+  --height_bar_menu_big: calc(var(--font_size_menu) *1.5);
 
   --window_min:780;
 
