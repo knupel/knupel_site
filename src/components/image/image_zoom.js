@@ -109,8 +109,8 @@ export function ImageZoom ({elem}) {
 	// 	console.log("image", elem.img.name, elem.img.extension);
 	// 	console.log("info", elem.info.name, elem.info.extension);
 	// }
-	console.log("elem.info",elem.info);
-	console.log("elem",elem);
+	// console.log("elem.info",elem.info);
+	// console.log("elem",elem);
 
 	if( elem.info === 'undefined' || elem.info === undefined) {
 		return (
