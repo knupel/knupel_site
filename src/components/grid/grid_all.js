@@ -55,14 +55,14 @@ export function GridAll() {
       if(node.extension === "jpg") {
         const obj = {
           img: node,
-          info: undefined,
+          info: "truc",
         }
-        for({node} of allFile.edges) {
-          if(node.extension === "md" && obj.img.name === node.name) {
-            obj.info = node;
-            break;
-          }
-        }
+        // for({node} of allFile.edges) {
+        //   if(node.extension === "md" && obj.img.name === node.name) {
+        //     obj.info = node;
+        //     break;
+        //   }
+        // }
         // last
         list.push(obj);
         set_list(list);

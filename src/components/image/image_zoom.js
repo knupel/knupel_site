@@ -13,7 +13,8 @@ import { ContextLayout} from "./../struct/layout";
 
 
 
-function ImageAnimation({img}) {
+// function ImageAnimation({img, info}) {
+	function ImageAnimation({elem}) {
 	const { height_bar_num } = useContext(ContextLayout);
 	const [is_over, set_is_over] = useState(false);
 	const [mouse, set_mouse] = useState({x:0,y:0});
@@ -89,9 +90,9 @@ function ImageAnimation({img}) {
 					onMouseEnter={mouse_enter}
 					onMouseLeave={mouse_leave}
 					onMouseMove={mouse_move}>
-				<GatsbyImage image={getImage(img)} alt={img.base}/>
+				<GatsbyImage image={getImage(elem.img)} alt={elem.img.base}/>
 			</div>
-			<div style={info_style} ></div>
+			<div style={info_style} >{elem.info}</div>
 		</div>
 	)
 }
@@ -102,29 +103,13 @@ function ImageAnimation({img}) {
 
 
 export function ImageZoom ({elem}) {
-	// console.log("image", elem.img.name, elem.img.extension);
-	// if(elem.info === undefined) {
-	// 	console.log("info", elem.info);
-	// } else {
-	// 	console.log("image", elem.img.name, elem.img.extension);
-	// 	console.log("info", elem.info.name, elem.info.extension);
-	// }
-	// console.log("elem.info",elem.info);
-	// console.log("elem",elem);
 
-	if( elem.info === 'undefined' || elem.info === undefined) {
+	if(elem !== null && elem !== "undefined" && elem !== undefined) {
 		return (
 			<>
-				{(elem.img.extension === "jpg") ? <ImageAnimation img={elem.img}/> : null}
+				{(elem.img.extension === "jpg") ? <ImageAnimation elem={elem}/> : null}
 			</>
 		)
+	} return null;
 
-	} else {
-		return (
-			<>
-				{(elem.img.extension === "jpg") ? <ImageAnimation img={elem.img} info={elem.info}/> : null}
-			</>
-		)
-	}
-	
 }
