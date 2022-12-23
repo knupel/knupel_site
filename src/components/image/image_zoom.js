@@ -109,7 +109,10 @@ export function ImageZoom ({elem}) {
 	// 	console.log("image", elem.img.name, elem.img.extension);
 	// 	console.log("info", elem.info.name, elem.info.extension);
 	// }
-	if(elem.info === undefined) {
+	console.log("elem.info",elem.info);
+	console.log("elem",elem);
+
+	if( elem.info === 'undefined' || elem.info === undefined) {
 		return (
 			<>
 				{(elem.img.extension === "jpg") ? <ImageAnimation img={elem.img}/> : null}
