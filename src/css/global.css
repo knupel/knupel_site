@@ -10,7 +10,8 @@
   --font_first_color:#800080;
   --font_second_color:yellow;
 
-  --font_size_menu:14px;
+  --font_size_menu_num:14;
+  --font_size_menu: calc(var(--font_size_menu_num) *1px);
   --font_size_current:10px;
 
   --first_color: magenta;
@@ -20,9 +21,16 @@
 
 	--size_logo: 30px;
 	--size_menu_offset: calc(calc(var(--size_logo) * 0.25) * -1);
+
+  --ratio_menu_small:3;
+  --ratio_menu_big:1.5;
 	
-  --height_bar_menu_small: calc(var(--font_size_menu) *3);
-  --height_bar_menu_big: calc(var(--font_size_menu) *1.5);
+  --height_bar_menu_small: calc(var(--font_size_menu) *var(--ratio_menu_small));
+  --height_bar_menu_big: calc(var(--font_size_menu) *var(--ratio_menu_big));
+  /* --height_bar_menu_small: calc(var(--font_size_menu) *3);
+  --height_bar_menu_big: calc(var(--font_size_menu) *1.5); */
+  /* --height_bar_menu_small: calc(var(--font_size_menu_num) *3);
+  --height_bar_menu_big: calc(var(--font_size_menu_num) *1.5); */
 
   --window_min:780;
 

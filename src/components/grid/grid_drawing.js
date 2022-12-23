@@ -1,7 +1,7 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 // APP
-import ImageZoom from "./grid_image_zoom";
+import { ImageZoom } from "../image/image_zoom";
 
 const img_grid_style = {
   position: "relative",
