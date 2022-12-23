@@ -16,9 +16,9 @@ import { ContextLayout} from "./../struct/layout";
 function ImageAnimation({img}) {
 	const { height_bar_num } = useContext(ContextLayout);
 	const [is_over, set_is_over] = useState(false);
-	// const [mouse, set_mouse] = useState({x:0,y:0});
-	const [mouse_x, set_mouse_x] = useState(0);
-	const [mouse_y, set_mouse_y] = useState(0);
+	const [mouse, set_mouse] = useState({x:0,y:0});
+	// const [mouse_x, set_mouse_x] = useState(0);
+	// const [mouse_y, set_mouse_y] = useState(0);
 	// const mouse_y = useRef(0);
 
 	const mouse_enter = () => {
@@ -31,15 +31,15 @@ function ImageAnimation({img}) {
 
 	const mouse_move = (event) => {
 		// let buf = {x :event.pageX, y :event.pageY};
-		// // let buf = {x :event.pageX, y :event.pageY - height_bar_num};
-		// set_mouse(buf);
+		let buf = {x :event.pageX, y :event.pageY - height_bar_num};
+		set_mouse(buf);
 		// set_mouse((prev) => prev.y - height_bar_num);
-		set_mouse_x(event.pageX);
-		let value = event.pageY - height_bar_num;
-		// let value = event.pageY;
-		console.log("value", value);
-		set_mouse_y(value);
-		console.log("mouse_y",mouse_y);
+		// set_mouse_x(event.pageX);
+		// let value = event.pageY - height_bar_num;
+		// // let value = event.pageY;
+		// console.log("value", value);
+		// set_mouse_y(value);
+		// console.log("mouse_y",mouse_y);
 	};
 	
 	// useEffect((event) => {
@@ -67,10 +67,10 @@ function ImageAnimation({img}) {
 
 		// left: mouse.current.x,
 		// top:  mouse.current.y,
-		// left: mouse.x,
-		// top:  mouse.y,
-		left: mouse_x,
-		top:  mouse_y,
+		left: mouse.x,
+		top:  mouse.y,
+		// left: mouse_x,
+		// top:  mouse_y,
 		// top: mouse.y,
 		// top: "calc(" + mouse.y + "px" -height_bar_num +")",
 		// top:  mouse.y -height_bar_num,
@@ -109,10 +109,19 @@ export function ImageZoom ({elem}) {
 	// 	console.log("image", elem.img.name, elem.img.extension);
 	// 	console.log("info", elem.info.name, elem.info.extension);
 	// }
+	if(elem.info === undefined) {
+		return (
+			<>
+				{(elem.img.extension === "jpg") ? <ImageAnimation img={elem.img}/> : null}
+			</>
+		)
+
+	} else {
+		return (
+			<>
+				{(elem.img.extension === "jpg") ? <ImageAnimation img={elem.img} info={elem.info}/> : null}
+			</>
+		)
+	}
 	
-	return (
-		<>
-			{(elem.img.extension === "jpg") ? <ImageAnimation img={elem.img} info={elem.info}/> : null}
-		</>
-	)
 }
