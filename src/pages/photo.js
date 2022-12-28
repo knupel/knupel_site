@@ -11,15 +11,13 @@ const Photo = () => {
     graphql`
       query {
         allFile(
-          filter: {sourceInstanceName: {eq: "all"}, dir: {regex: "/photo_hd/"}}
+          filter: {sourceInstanceName: {eq: "all"}, extension: {eq: "jpg"}, dir: {regex: "/photo_hd/"}}
           sort: {base: ASC}
         ) {
           edges {
             node {
-              id
               base
-              extension
-              relativePath
+              name
               childImageSharp {
                 gatsbyImageData(
                   width: 800
