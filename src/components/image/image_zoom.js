@@ -1,99 +1,111 @@
 /**
  * IMAGE GRID ZOOM
  * 2022-2022
- * v 0.0.1
+ * v 0.2.0
  * 
  */
 import React from "react";
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
+import { useEffect, useRef } from "react";
 import { useContext } from "react";
+// GATSBY
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+// APP
+import { SelectMDFront } from "./../markdown";
+import { ContexGridImage} from "./../grid/_grid_image";
 
-import { ContextLayout} from "./../struct/layout";
+
+import "./image_zoom.scss";
+
+
+function Info({className, style, info}) {
+	return <>{info !== undefined ? <SelectMDFront className={className} style={style} node={info}/> : null}</>
+}
 
 
 
+
+// import useMouse from '@react-hook/mouse-position'
+// https://github.com/jaredLunde/react-hook/blob/master/packages/mouse-position/src/index.tsx
+// https://www.kindacode.com/article/react-get-the-position-x-y-of-an-element/
+// https://stackoverflow.com/questions/62483460/mouse-element-movement-within-a-react-div
 // function ImageAnimation({img, info}) {
-	function ImageAnimation({elem}) {
-	const { height_bar_num } = useContext(ContextLayout);
-	const [is_over, set_is_over] = useState(false);
-	const [mouse, set_mouse] = useState({x:0,y:0});
-	// const [mouse_x, set_mouse_x] = useState(0);
-	// const [mouse_y, set_mouse_y] = useState(0);
-	// const mouse_y = useRef(0);
+function ImageAnimation2({elem, index}) {
+		// div pos
+		const ref = useRef(null);
+		const [pos, set_pos] = useState({x:0,y:0});
+		const [canvas, set_canvas] = useState({width:0, height:0});
 
-	const mouse_enter = () => {
-		set_is_over(true);
-	};
+		const get_canvas = () => {
+			if(ref.current !== null) {
+				let x = ref.current.offsetLeft;
+				let y = ref.current.offsetTop;
+				let w = ref.current.getBoundingClientRect().width;
+				let h = ref.current.getBoundingClientRect().height;
+				set_pos({x: x, y: y});
+				set_canvas({width: w, height: h});
+			}
+		};
 
-	const mouse_leave = () => {
-		set_is_over(false);
-	};
+		useEffect(() => {
+			get_canvas();
+		}, []);
 
-	const mouse_move = (event) => {
-		// let buf = {x :event.pageX, y :event.pageY};
-		let buf = {x :event.pageX, y :event.pageY - height_bar_num};
-		set_mouse(buf);
-		// set_mouse((prev) => prev.y - height_bar_num);
-		// set_mouse_x(event.pageX);
-		// let value = event.pageY - height_bar_num;
-		// // let value = event.pageY;
-		// console.log("value", value);
-		// set_mouse_y(value);
-		// console.log("mouse_y",mouse_y);
-	};
+		useEffect(() => {
+		window.addEventListener("resize", get_canvas);
+		}, []);
+
+			
+	const { mouse_enter, mouse_leave, mouse_move, mouse} = useContext(ContexGridImage);
 	
-	// useEffect((event) => {
-	// 	// const mouse_move = (event) => {
-	// 		let buf = {x :event.pageX, y :event.pageY - height_bar_num};
-	// 		set_mouse(buf);
-	// 	// }
-	// },[mouse_move]);
-
-	const image_style = {
-		transition: 'transform 3s ease, filter 1s ease-in-out',
-		transform: is_over ? 'scale(1.5)' : 'scale(1.0)',
-		cursor: 'pointer',
-	};
-
-	// console.log("height_bar", height_bar_num);
-
-	const info_style = {
-		zIndex: "999px",
-		position: 'absolute',
-		height: '20px',
-		width: '20px',
-		background: 'yellow',
-		opacity: is_over ? 1 : 0,
-
-		// left: mouse.current.x,
-		// top:  mouse.current.y,
-		left: mouse.x,
-		top:  mouse.y,
-		// left: mouse_x,
-		// top:  mouse_y,
-		// top: mouse.y,
-		// top: "calc(" + mouse.y + "px" -height_bar_num +")",
-		// top:  mouse.y -height_bar_num,
-		// top:  mouse.y,
-		// top: mouse.y - height_bar,
-		// top: mouse.y - height_bar +"px",
-	}
-
-	const container_style = {
+	// image style
+	const img_box_style = {
+		// zIndex: "10px",
 		overflow: 'hidden',
 	};
 
+	const img_style = {
+		transition: 'transform 3s ease, filter 1s ease-in-out',
+		transform: elem.is_over ? 'scale(1.5)' : 'scale(1.0)',
+		cursor: 'pointer',
+	};
+
+	// info style
+	const info_box_style = {
+		// zIndex: "999px",
+		// overflow: 'visible',
+	};
+
+	const info_style = {
+		// zIndex: "999px", // not necessary
+		position: 'absolute',
+		opacity:  elem.is_over ? 1 : 0, 
+		left: mouse.x,
+		top: mouse.y,
+		// cursor: 'pointer',
+		// overflow: is_over ? 'visible' : "hidden",
+	}
+
+
+
 	return (
-		<div style={container_style}>
-			<div style={image_style} 
-					onMouseEnter={mouse_enter}
-					onMouseLeave={mouse_leave}
-					onMouseMove={mouse_move}>
-				<GatsbyImage image={getImage(elem.img)} alt={elem.img.base}/>
+		<>
+			{/* image + animation */}
+			<div style={img_box_style}>
+				<div ref={ref} style={img_style} 
+						onMouseEnter={mouse_enter(index, pos, canvas)}
+						// onMouseLeave={mouse_leave}
+						onMouseLeave={mouse_leave(index, pos, canvas)}
+						onMouseMove={mouse_move}
+						>
+					<GatsbyImage image={getImage(elem.img)} alt={elem.img.base}/>
+				</div>
 			</div>
-			<div style={info_style} >{elem.info}</div>
-		</div>
+			{/* info */}
+			{/* <div style={info_box_style} onMouseMove={mouse_move} onMouseEnter={mouse_enter_info}>
+				<Info className="info" style={info_style} info={elem.info}/>
+			</div> */}
+		</>
 	)
 }
 
@@ -102,14 +114,20 @@ import { ContextLayout} from "./../struct/layout";
 
 
 
-export function ImageZoom ({elem}) {
+
+
+export function ImageZoom ({elem, index}) {
 
 	if(elem !== null && elem !== "undefined" && elem !== undefined) {
 		return (
-			<>
-				{(elem.img.extension === "jpg") ? <ImageAnimation elem={elem}/> : null}
-			</>
+			<div>
+				{(elem.img.extension === "jpg") ? <ImageAnimation2 elem={elem} index={index}/> : null}
+				{/* {(elem.img.extension === "jpg") ? <ImageAnimation elem={elem}/> : null} */}
+			</div>
 		)
 	} return null;
-
 }
+
+
+
+

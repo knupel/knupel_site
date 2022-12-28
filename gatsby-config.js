@@ -15,7 +15,8 @@ module.exports = {
   },
 
   plugins: [
-
+    // SASS / SCSS
+    `gatsby-plugin-sass`,
     // FONT
     {
       resolve: "gatsby-plugin-web-font-loader",

@@ -10,7 +10,7 @@ import { useState } from "react";
 // GATSBY
 import { useStaticQuery, graphql } from "gatsby";
 // APP
-import { ImageZoom } from "../image/image_zoom";
+import { GridImage } from "./_grid_image"
 
 
 const img_grid_style = {
@@ -19,13 +19,7 @@ const img_grid_style = {
   gridTemplateColumns: `repeat(auto-fill, minmax(200px, 1fr))`,
 };
 
-// { regex: "/__/" }
-// ^(?=.*\\.(md|txt|MD|TXT)($|\\?)).*
-// https://regexr.com/
-// +.(jp[e]?g|JP[E]?G))/g
 
-// filter: { sourceInstanceName: { eq: "all" }, base: { regex: "/__/" } }
-// filter: { sourceInstanceName: { eq: "all" }, extension: {eq: "jpg"}, base: { regex: "/__/" } }
 export function GridAll() {
   const { allFile } = useStaticQuery(
     graphql`
@@ -41,6 +35,14 @@ export function GridAll() {
               childImageSharp {
                 gatsbyImageData(width: 800, height: 800, placeholder: BLURRED)
               }
+              childrenMarkdownRemark {
+                frontmatter {
+                  author
+                  title
+                  subtitle
+                }
+                html
+              }
             }
           }
         }
@@ -51,39 +53,32 @@ export function GridAll() {
   const [list, set_list] = useState([]);
   if(list.length === 0) {
     // first loop to load image file
+    let elem_index = 0;
     allFile.edges.map(({ node }, index) => {
       if(node.extension === "jpg") {
         const obj = {
           img: node,
-          info: "truc",
+          index:elem_index,
+          is_over: false,
         }
-        // for({node} of allFile.edges) {
-        //   if(node.extension === "md" && obj.img.name === node.name) {
-        //     obj.info = node;
-        //     break;
-        //   }
-        // }
+        elem_index++;
+        for({node} of allFile.edges) {
+          if(node.extension === "md" && obj.img.name === node.name) {
+            obj.info = node.childrenMarkdownRemark[0];
+            break;
+          }
+        }
         // last
         list.push(obj);
         set_list(list);
       }
-
     })
-
   }
 
 
   if(list !== null) {
     return (
-      <div>
-        <div style={img_grid_style}>
-         {list.map((elem) => (
-            <ImageZoom elem={elem}/>
-          ))}
-        </div>
-      </div>
+      <GridImage style={img_grid_style} list={list}/>
     );
-
   } else return null;
-  
 }

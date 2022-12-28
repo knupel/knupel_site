@@ -1,7 +1,16 @@
+/**
+ * GRID DRAWING
+ * 2021-2022
+ * v 0.1.0
+ * 
+ */
+// REACT
 import React from "react";
+import { useState } from "react";
+// GATSBY
 import { useStaticQuery, graphql } from "gatsby";
 // APP
-import { ImageZoom } from "../image/image_zoom";
+import { GridImage } from "./_grid_image"
 
 const img_grid_style = {
   position: "relative",
@@ -19,12 +28,18 @@ export function GridDrawing() {
         ) {
           edges {
             node {
-              id
-              base
+              name
               extension
-              relativePath
               childImageSharp {
                 gatsbyImageData(width: 800, height: 800, placeholder: BLURRED)
+              }
+              childrenMarkdownRemark {
+                frontmatter {
+                  author
+                  title
+                  subtitle
+                }
+                html
               }
             }
           }
@@ -32,13 +47,35 @@ export function GridDrawing() {
       }
     `
   );
-  return (
-    <div>
-      <div style={img_grid_style}>
-        {allFile.edges.map(({ node }) => (
-          <ImageZoom node={node}/>
-        ))}
-      </div>
-    </div>
-  );
+  const [list, set_list] = useState([]);
+  if(list.length === 0) {
+    // first loop to load image file
+    let elem_index = 0;
+    allFile.edges.map(({ node }, index) => {
+      if(node.extension === "jpg") {
+        const obj = {
+          img: node,
+          index:elem_index,
+          is_over: false,
+        }
+        elem_index++;
+        for({node} of allFile.edges) {
+          if(node.extension === "md" && obj.img.name === node.name) {
+            obj.info = node.childrenMarkdownRemark[0];
+            break;
+          }
+        }
+        // last
+        list.push(obj);
+        set_list(list);
+      }
+    })
+  }
+
+
+  if(list !== null) {
+    return (
+      <GridImage style={img_grid_style} list={list}/>
+    );
+  } else return null;
 }

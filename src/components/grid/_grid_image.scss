@@ -1,0 +1,73 @@
+$colour : purple;
+
+.info {
+  /* background: purple;
+  margin: 0 auto;
+  padding: 0.5em; */
+	display: flex;
+	text-align: center;
+	flex-direction: column;
+	padding: 0.5em;
+	color: yellow;
+	background: rgba(red($colour),green($colour),blue($colour),0.66);
+}
+
+
+.info .title {
+	font-size: 14px;
+	background: rgba(0,0,0,0);
+	// order: 5;
+
+}
+
+.info .subtitle {
+	font-size: 12px;
+	display: none;
+	// order: 4;
+}
+
+.info .author {
+	font-size: 10px;
+	// order: 3;
+}
+
+.info .date {
+	font-size: 10px;
+	// order: 2;
+}
+
+.info .type {
+	display: none;
+	// order: 1;
+}
+
+.info .support {
+	display: none;
+	// order: 1;
+}
+
+.info .size {
+	display: none;
+	// order: 0;
+}
+
+.info .serie {
+	display: none;
+	// order: 1;
+}
+
+.info .id {
+	display: none;
+	// order: 0;
+}
+
+.info .client {
+	display: none;
+	// order: 0;
+}
+
+.info .misc {
+	display: none;
+	// order: 0;
+}
+
