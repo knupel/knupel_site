@@ -1,7 +1,7 @@
 /**
  * GRID DYNAMIC
  * 2022-2022
- * v 0.0.1
+ * v 0.1.0
  * */
 import React from "react";
 import { useState, createContext, useContext}  from "react";
@@ -35,15 +35,6 @@ export function GridImage({style, list}) {
 		set_mouse({x : buf_x, y : buf_y});
 	};
 
-	const mouse_enter_info = (index) => {
-		// set_is_over(true);
-		// set_info(info.map((elem) => {
-		// 	if(elem !== undefined && elem.index === index) {
-		// 		elem.is_over = true;
-		// 	}
-		// }))
-	};
-
 	const mouse_leave = (index, pos, canvas) => {
 		over_is(index, pos, canvas, false);
 	};
@@ -51,6 +42,11 @@ export function GridImage({style, list}) {
 	const mouse_enter = (index, pos, canvas) => {
 		over_is(index, pos, canvas, true);
 	};
+
+	const mouse_click = (event, index) => {
+		event.preventDefault();
+
+	}
 
 	function over_is(index, pos, canvas, state) {
 		if(in_canvas(mouse, pos, canvas) === state) {
@@ -73,26 +69,40 @@ export function GridImage({style, list}) {
 		}
 	}
 
+	function show_is(index, pos, canvas) {
+		if(in_canvas(mouse, pos, canvas) === true) {
+			const update_group = [];
+			let update_is = false;
+			group.map((elem) => {
+				if(elem !== undefined && elem.index === index) {
+					elem.is_show = true;
+				}
+				update_group.push(elem);
+			});
+			if(update_is) {
+				set_group(update_group);
+			}
+		}
+	}
+
 
 	const setting = {
 		mouse,
 		group,
 		mouse_move,
 		mouse_enter,
-		mouse_enter_info,
 		mouse_leave,
+		mouse_click,
 		set_group,
 	};
 
 	// info part
 	const info_style = {
-		zIndex: "999px", // may be not necessary
 		position: 'absolute',
 		opacity: is_grid_over ? 1 : 0, // need to have a good start, but not refresh when it's outside the div
 		left: mouse.x,
 		top: mouse.y,
 		// cursor: 'pointer',
-		// overflow: is_over ? 'visible' : "hidden",
 	}
 
 
@@ -104,9 +114,38 @@ export function GridImage({style, list}) {
 					<ImageZoom elem={elem} index={index}/>
 				))}
 			</div>
-			<div onMouseMove={mouse_move} onMouseEnter={mouse_enter_info}>
+			<div onMouseMove={mouse_move} >
 				<Info className="info" style={info_style} info={info}/>
 			</div>
 		</ContexGridImage.Provider>
 	)
+}
+
+
+
+
+
+
+
+export function build_list(edges, list) {
+  let elem_index = 0;
+  edges.map(({ node }) => {
+    if(node.extension === "jpg") {
+      const obj = {
+        img: node,
+        index:elem_index,
+        is_over: false,
+        is_show:false,
+      }
+      elem_index++;
+      for({node} of edges) {
+        if(node.extension === "md" && obj.img.name === node.name) {
+          obj.info = node.childrenMarkdownRemark[0];
+          break;
+        }
+      }
+      list.push(obj);
+    }
+  })
+  return list;
 }

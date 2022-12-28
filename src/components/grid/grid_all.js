@@ -10,7 +10,7 @@ import { useState } from "react";
 // GATSBY
 import { useStaticQuery, graphql } from "gatsby";
 // APP
-import { GridImage } from "./_grid_image"
+import { GridImage, build_list } from "./_grid_image"
 
 
 const img_grid_style = {
@@ -18,6 +18,8 @@ const img_grid_style = {
   display: "grid",
   gridTemplateColumns: `repeat(auto-fill, minmax(200px, 1fr))`,
 };
+
+
 
 
 export function GridAll() {
@@ -52,27 +54,7 @@ export function GridAll() {
 
   const [list, set_list] = useState([]);
   if(list.length === 0) {
-    // first loop to load image file
-    let elem_index = 0;
-    allFile.edges.map(({ node }, index) => {
-      if(node.extension === "jpg") {
-        const obj = {
-          img: node,
-          index:elem_index,
-          is_over: false,
-        }
-        elem_index++;
-        for({node} of allFile.edges) {
-          if(node.extension === "md" && obj.img.name === node.name) {
-            obj.info = node.childrenMarkdownRemark[0];
-            break;
-          }
-        }
-        // last
-        list.push(obj);
-        set_list(list);
-      }
-    })
+    set_list(build_list(allFile.edges, list));
   }
 
 

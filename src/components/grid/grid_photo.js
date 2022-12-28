@@ -1,7 +1,7 @@
 /**
  * GRID PHOTO
  * 2021-2022
- * v 0.2.0
+ * v 0.2.1
  * 
  */
 // REACT
@@ -10,7 +10,7 @@ import { useState } from "react";
 // GATSBY
 import { useStaticQuery, graphql } from "gatsby";
 // APP
-import { GridImage } from "./_grid_image"
+import { GridImage, build_list } from "./_grid_image"
 
 const img_grid_style = {
   position: "relative",
