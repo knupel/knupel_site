@@ -51,6 +51,12 @@ $colour : purple;
 	// order: 0;
 }
 
+.info .format {
+	display: none;
+	// order: 0;
+}
+
+
 .info .serie {
 	display: none;
 	// order: 1;
@@ -67,6 +73,11 @@ $colour : purple;
 }
 
 .info .misc {
+	display: none;
+	// order: 0;
+}
+
+.info .price {
 	display: none;
 	// order: 0;
 }

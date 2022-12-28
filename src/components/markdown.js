@@ -38,6 +38,8 @@ export function SelectMDFront({ style, className, node}) {
         <div className="id">{node.frontmatter.id}</div>
         <div className="client">{node.frontmatter.client}</div>
         <div className="misc">{node.frontmatter.misc}</div>
+        <div className="price">{node.frontmatter.price}</div>
+        <div className="format">{node.frontmatter.format}</div>
         
       </div>
       
