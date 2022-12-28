@@ -13,7 +13,6 @@ function DisplayMD() {
       allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/story/" } }) {
         edges {
           node {
-            id
             html
             frontmatter {
               title

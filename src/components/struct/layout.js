@@ -1,8 +1,7 @@
 /**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
+ * Layout
+ * v 0.3.0
+ * 2021-2022
  */
 // REACT
 import * as React from "react";
@@ -16,16 +15,11 @@ import Header from "./header";
 import { ProviderMenu } from "./../../context/context_menu.js"
 import { Footer } from "./footer";
 import "./layout.css";
-
-import { get_css_value } from "../../utils/utils.js";
-import { GetWidth } from "../../utils/canvas.js";
-
+import { get_css_value } from "../../utils/utils";
+import { GetWidth } from "../../utils/canvas";
 
 
 export const ContextLayout = createContext(null);
-
-
-
 
 
 export function Layout({ children }) {
@@ -70,12 +64,12 @@ export function Layout({ children }) {
         <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       </ProviderMenu>
       <ContextLayout.Provider value={{height_bar_num}}>
-        <div style={{height: height_bar}}></div>
+        <div style={{height: height_bar}}></div> 
         {/* we don't use this design pattern because we must put two values one in the layout.css and the same in global.css
         because it's not possible to import global value in css @media (min-width: 780px) */}
         {/* <div className="navbar"></div> */}
-        <main style={{ marginTop: 0 }}>{children}</main>
-      </ContextLayout.Provider>
+        <div style={{ marginTop: 0 }}>{children}</div>
+      </ContextLayout.Provider> 
       <Footer />
     </>
   );
