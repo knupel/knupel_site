@@ -51,26 +51,24 @@ function FullImage({list, index}) {
 		display: index > 0 ? "flex": "none",
 		justifyContent: "center",
 		alignItems: "center",
-		background: "black",
+		background: "red",
 		width: "100%",
 		height: "100%",
-		// position :"absolute",
-
-
 	}
 
 
 	let img_target = null;
+	
 	if(index >= 0 && index < list.length) {
 		img_target = list[index];
 	}
-	if(img_target) console.log("FullImage({list, index})",index, img_target.img.name);
 	return(
 		<div style={container} onClick={(event) => mouse_click(event, -1)}>
 			<div>
-				{img_target !== null ? <GatsbyImage image={getImage(img_target.img)} alt={img_target.img.name}/> : null}
-				
-				{/* <StaticImage src={img.path} alt={img.name}/> */}
+				{	img_target !== null ? 
+				<GatsbyImage image={getImage(img_target.img)} alt={img_target.img.name}/> : 
+					null
+				}
 			</div>
 		</div>
 	)
@@ -123,7 +121,7 @@ export function GridImage({style, list}) {
 			const update_group = [];
 			let update_is = false;
 			group.map((elem) => {
-				if(elem !== undefined && elem.index === index && elem.is_over !== state) {
+				if(elem !== null && elem !== undefined && elem.index === index && elem.is_over !== state) {
 					elem.is_over = state;
 					if(elem.is_over === true) {
 						const buf = {
@@ -159,16 +157,15 @@ export function GridImage({style, list}) {
 		top: mouse.y,
 		cursor: 'pointer',
 	}
-
 	return (
-
 		<ContexGridImage.Provider value={setting}>
-		{index_open >= 0 ? 
-			<FullImage list={list} index={index_open} /> :
+		{ 
+			index_open >= 0 ? <FullImage list={list} index={index_open} /> :
 			<>
 				<div style={style}>
+				{/* to avoid the first null element of the list to avoid the bug of FullImage compoent when the index is equal to '0' */}
 				{list.map((elem, index) => (
-						<ImageZoom elem={elem} index={index}/>
+						elem !== null ? <ImageZoom elem={elem} index={index}/> : null
 					))}
 				</div>
 				{info !== null ? 
@@ -189,14 +186,16 @@ export function GridImage({style, list}) {
 
 
 export function build_list(edges, list) {
-  let elem_index = 0;
+  let elem_index = 1;
+  // init the first elem as null to avoid the bug of FullImage compoent when the index is equal to '0'
+	list.push(null);
+
   edges.map(({ node }) => {
     if(node.extension === "jpg") {
       const obj = {
         img: node,
         index:elem_index,
         is_over: false,
-        is_show:false,
       }
       elem_index++;
       for({node} of edges) {
