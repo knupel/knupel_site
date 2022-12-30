@@ -1,9 +1,9 @@
 ---
 author: "Knupel"
-date: "2085"
+date: "2004"
 title: "Great Paris"
 subtitle: ""
-type: "graphisme web"
+type: "web design"
 size: ""
 serie: ""
 id: ""

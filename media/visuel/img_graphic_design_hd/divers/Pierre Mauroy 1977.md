@@ -5,7 +5,7 @@ title: "Hommage à Pierre Mauroy"
 subtitle: ""
 type: "Art Génératif"
 size: ""
-serie: ""
+serie: "Politique"
 id: ""
 misc: ""
 ---

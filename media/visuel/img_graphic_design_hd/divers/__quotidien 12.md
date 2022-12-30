@@ -1,11 +1,11 @@
 ---
 author: "Knupel"
 date: "2085"
-title: "Titre"
+title: "Quotidien 12"
 subtitle: ""
-type: ""
+type: "graphisme"
 size: ""
-serie: ""
+serie: "Quotidien"
 id: ""
 misc: ""
 ---

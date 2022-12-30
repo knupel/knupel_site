@@ -7,7 +7,7 @@ type: "graphisme"
 size: ""
 serie: ""
 id: ""
-misc: ""
+misc: "concours"
 ---
 
 C'est un très beau travail, n'est-ce pas ?

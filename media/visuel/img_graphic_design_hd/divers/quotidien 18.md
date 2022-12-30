@@ -1,11 +1,11 @@
 ---
 author: "Knupel"
 date: "2004"
-title: "Quotidien 17"
+title: "Quotidien 18"
 subtitle: ""
-type: ""
+type: "graphisme"
 size: ""
-serie: ""
+serie: "Quotidien"
 id: ""
 misc: ""
 ---

@@ -6,6 +6,7 @@ subtitle: ""
 type: "Art génératif"
 size: ""
 serie: "Dark Side"
+format: "animation"
 id: ""
 misc: ""
 ---
