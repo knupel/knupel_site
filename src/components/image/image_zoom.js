@@ -1,7 +1,9 @@
 /**
- * IMAGE GRID ZOOM
+ * IMAGE ZOOM
  * 2022-2022
- * v 0.2.0
+ * v 0.2.1
+ * 
+ * use with image component GridImage to animate the image from the grid
  * 
  */
 import React from "react";
@@ -23,44 +25,37 @@ function Info({className, style, info}) {
 }
 
 
+function ImageAnimation({elem, index}) {
+	// div pos
+	const ref = useRef(null);
+	const [pos, set_pos] = useState({x:0,y:0});
+	const [canvas, set_canvas] = useState({width:0, height:0});
 
+	const get_canvas = () => {
+		if(ref.current !== null) {
+			let x = ref.current.offsetLeft;
+			let y = ref.current.offsetTop;
+			let w = ref.current.getBoundingClientRect().width;
+			let h = ref.current.getBoundingClientRect().height;
+			set_pos({x: x, y: y});
+			set_canvas({width: w, height: h});
+		}
+	};
 
-// import useMouse from '@react-hook/mouse-position'
-// https://github.com/jaredLunde/react-hook/blob/master/packages/mouse-position/src/index.tsx
-// https://www.kindacode.com/article/react-get-the-position-x-y-of-an-element/
-// https://stackoverflow.com/questions/62483460/mouse-element-movement-within-a-react-div
-// function ImageAnimation({img, info}) {
-function ImageAnimation2({elem, index}) {
-		// div pos
-		const ref = useRef(null);
-		const [pos, set_pos] = useState({x:0,y:0});
-		const [canvas, set_canvas] = useState({width:0, height:0});
+	useEffect(() => {
+		get_canvas();
+	}, []);
 
-		const get_canvas = () => {
-			if(ref.current !== null) {
-				let x = ref.current.offsetLeft;
-				let y = ref.current.offsetTop;
-				let w = ref.current.getBoundingClientRect().width;
-				let h = ref.current.getBoundingClientRect().height;
-				set_pos({x: x, y: y});
-				set_canvas({width: w, height: h});
-			}
-		};
+	useEffect(() => {
+	window.addEventListener("resize", get_canvas);
+	}, []);
 
-		useEffect(() => {
-			get_canvas();
-		}, []);
-
-		useEffect(() => {
-		window.addEventListener("resize", get_canvas);
-		}, []);
-
-			
-	const { mouse_enter, mouse_leave, mouse_move, mouse} = useContext(ContexGridImage);
+	// CONTEXT
+	/////////////////
+	const { mouse_enter, mouse_leave, mouse_move} = useContext(ContexGridImage);
 	
 	// image style
 	const img_box_style = {
-		// zIndex: "10px",
 		overflow: 'hidden',
 	};
 
@@ -70,41 +65,17 @@ function ImageAnimation2({elem, index}) {
 		cursor: 'pointer',
 	};
 
-	// info style
-	const info_box_style = {
-		// zIndex: "999px",
-		// overflow: 'visible',
-	};
-
-	const info_style = {
-		// zIndex: "999px", // not necessary
-		position: 'absolute',
-		opacity:  elem.is_over ? 1 : 0, 
-		left: mouse.x,
-		top: mouse.y,
-		// cursor: 'pointer',
-		// overflow: is_over ? 'visible' : "hidden",
-	}
-
-
-
 	return (
 		<>
-			{/* image + animation */}
 			<div style={img_box_style}>
 				<div ref={ref} style={img_style} 
 						onMouseEnter={mouse_enter(index, pos, canvas)}
-						// onMouseLeave={mouse_leave}
 						onMouseLeave={mouse_leave(index, pos, canvas)}
 						onMouseMove={mouse_move}
 						>
-					<GatsbyImage image={getImage(elem.img)} alt={elem.img.base}/>
+					<GatsbyImage image={getImage(elem.img)} alt={elem.img.name}/>
 				</div>
 			</div>
-			{/* info */}
-			{/* <div style={info_box_style} onMouseMove={mouse_move} onMouseEnter={mouse_enter_info}>
-				<Info className="info" style={info_style} info={elem.info}/>
-			</div> */}
 		</>
 	)
 }
@@ -114,15 +85,15 @@ function ImageAnimation2({elem, index}) {
 
 
 
-
+// https://reactgo.com/react-pass-event-with-parameter/
 
 export function ImageZoom ({elem, index}) {
+	const { mouse_click } = useContext(ContexGridImage);
 
 	if(elem !== null && elem !== "undefined" && elem !== undefined) {
 		return (
-			<div>
-				{(elem.img.extension === "jpg") ? <ImageAnimation2 elem={elem} index={index}/> : null}
-				{/* {(elem.img.extension === "jpg") ? <ImageAnimation elem={elem}/> : null} */}
+			<div onClick={(event) => mouse_click(event, index)}>
+				{(elem.img.extension === "jpg") ? <ImageAnimation elem={elem} index={index}/> : null}
 			</div>
 		)
 	} return null;

@@ -5,7 +5,7 @@ title: "Fafa 40"
 subtitle: ""
 type: "Photomontage"
 size: ""
-serie: ""
+serie: "Anniversaire"
 id: ""
 misc: ""
 ---

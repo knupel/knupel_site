@@ -5,7 +5,7 @@ title: "La France à la dérive et sous les eaux troubles"
 subtitle: ""
 type: "graphisme"
 size: ""
-serie: ""
+serie: "Politique"
 id: ""
 misc: ""
 ---

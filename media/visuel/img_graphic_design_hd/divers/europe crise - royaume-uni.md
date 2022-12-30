@@ -5,7 +5,7 @@ title: "Le Royaume-Unis à la dérive"
 subtitle: ""
 type: "graphisme"
 size: ""
-serie: ""
+serie: "Politique"
 id: ""
 misc: ""
 ---
