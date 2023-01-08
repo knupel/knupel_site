@@ -86,6 +86,7 @@ function ImageAnimation({elem, index}) {
 
 
 // https://reactgo.com/react-pass-event-with-parameter/
+// https://www.geeksforgeeks.org/how-to-pass-a-parameter-to-an-event-handler-or-callback/
 
 export function ImageZoom ({elem, index}) {
 	const { mouse_click } = useContext(ContexGridImage);
