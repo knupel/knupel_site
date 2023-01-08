@@ -6,6 +6,7 @@ subtitle: ""
 type: "Art génératif"
 size: ""
 serie: "Contagion"
+format: "animation"
 id: ""
 misc: ""
 ---
