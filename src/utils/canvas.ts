@@ -1,6 +1,6 @@
 /* Utils Canvas
-* 2021_2022 
-* v 0.3.1
+* 2021_2023
+* v 0.3.2
 */
 
 import { useState, useRef, useLayoutEffect } from "react";
@@ -16,22 +16,22 @@ function set_window(canvas : any) {
 
 export function GetWindow() {
   let canvas = {width:0, height:0};
-  set_window(canvas);
+  set_window(canvas)
 
   const [size, set_size] = useState(canvas);
   useRef(size);
 
   useLayoutEffect(() => {
     function window_resize(event : any) {
-      set_window(canvas);
-      set_size(canvas);
+      set_window(canvas)
+      set_size(canvas)
     }
     window.addEventListener("resize", window_resize)
     return () => {
-      window.removeEventListener("resize", window_resize);
+      window.removeEventListener("resize", window_resize)
     }
-  }, [canvas]);
-  return canvas;
+  }, [canvas])
+  return canvas
 }
 
 
@@ -43,8 +43,14 @@ export function GetHeight() {
   return GetWindow().height;
 }
 
-export function Window_is_higher_than(value : number) {
+export function WidthIsHigherThan(value : number) {
   if(GetWidth() > value) {
+    return true;
+  } else return false;
+}
+
+export function HeightIsHigherThan(value : number) {
+  if(GetHeight() > value) {
     return true;
   } else return false;
 }

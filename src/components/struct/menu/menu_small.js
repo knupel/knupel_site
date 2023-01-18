@@ -10,8 +10,7 @@ import { ContextMenu } from "./../../../context/context_menu";
 
 
 
-import {  menu_bar,
-          toggle_menu, 
+import {  toggle_menu, 
           menu_display, menu_display_open, menu_elem,
           hamburger, burger, hamburger_container,
         } from "./menu_small.module.css";

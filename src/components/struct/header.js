@@ -1,8 +1,8 @@
 /**
  * 
  * HEADER 
- * 2021-2022
- * v 0.1.0
+ * 2021-2023
+ * v 0.1.1
  * 
  * */
 import React from "react";
@@ -17,7 +17,7 @@ import menu from "./../../../media/json/menu.json";
 import { ContextMenu } from "./../../context/context_menu.js";
 
 import { get_css_value } from "../../utils/utils";
-import { Window_is_higher_than } from "./../../utils/canvas";
+import { WidthIsHigherThan } from "./../../utils/canvas";
 
 
 
@@ -28,7 +28,9 @@ export default function Header() {
   if(size === 0 && browser_is) {
     set_size(get_css_value("--window_min"));
   }
-  if(Window_is_higher_than(size)) {
+  // here it's weird because I don't need use 'ref' on the div to be sure the window value is updated.
+  // may be because the browser is checked ?
+  if(WidthIsHigherThan(size)) {
     switch_off_menu_small();
     return (
       <div className={menu_big}>
