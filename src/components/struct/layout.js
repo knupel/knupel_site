@@ -1,7 +1,7 @@
 /**
  * Layout
- * v 0.3.0
- * 2021-2022
+ * v 0.3.2
+ * 2021-2023
  */
 // REACT
 import * as React from "react";
@@ -16,7 +16,7 @@ import { ProviderMenu } from "./../../context/context_menu.js"
 import { Footer } from "./footer";
 import "./layout.css";
 import { get_css_value } from "../../utils/utils";
-import { GetWidth } from "../../utils/canvas";
+import { get_width } from "../../utils/canvas";
 
 
 export const ContextLayout = createContext(null);
@@ -28,7 +28,7 @@ export function Layout({ children }) {
   const [height_bar_num, set_height_bar_num] = useState(0);
   const [size, set_size] = useState(null);
   // setting
-  let width = GetWidth();
+  let width = get_width();
   if(size === null || size !== width) {
     set_size(width);
   }
