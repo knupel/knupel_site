@@ -7,7 +7,6 @@ import React from "react";
 import { useState, createContext, useContext}  from "react";
 // GATSBY
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { StaticImage } from "gatsby-plugin-image";
 // APP
 import { ImageZoom } from "../image/image_zoom";
 import { SelectMDFront } from "./../markdown";
@@ -19,27 +18,11 @@ import "./_grid_image.scss";
 export const ContexGridImage = createContext(null);
 
 
-
-
-
-
-
-
-
-
-
 // BUBBLE INFO
 ////////////////////////
 function Info({className, style, info}) {
 	return <>{info !== null ? <SelectMDFront className={className} style={style} node={info}/> : null}</>
 }
-
-
-
-
-
-
-
 
 
 
@@ -51,7 +34,7 @@ function FullImage({list, index}) {
 		display: index > 0 ? "flex": "none",
 		justifyContent: "center",
 		alignItems: "center",
-		background: "red",
+		background: "black",
 		width: "100%",
 		height: "100%",
 	}
