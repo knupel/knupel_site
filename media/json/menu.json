@@ -102,12 +102,32 @@
       },
       {
         "id": 5,
-        "level": 0,
+        "level": 1,
         "name": "lab",
         "label_en": "LABORATORY",
         "label_fr": "LABORATOIRE",
-        "what": "https://stanlab.netlify.app/"
+        "what": "submenu",
+        "menu": [
+          {
+            "id": 50,
+            "level": 1,
+            "name": "gatsbylab",
+            "label_en": "GATSBY LABORATORY",
+            "label_fr": "LABORATOIRE GATSBY",
+            "what": "https://gatsbyreactlab.netlify.app/"
+          },
+          {
+            "id": 51,
+            "level": 1,
+            "name": "nextlab",
+            "label_en": "NEXT LABORATORY",
+            "label_fr": "LABORATOIRE NEXT",
+            "what": "https://nextreactlab.netlify.app/"
+          }
+        ]
       }
+
     ]
   }
 }
+
