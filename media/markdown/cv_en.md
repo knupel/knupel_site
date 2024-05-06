@@ -1,10 +1,39 @@
 ---
 author: "Knupel"
-date: "2021-7-19"
+date: "2024-5-6"
 title: "cv en"
 ---
 
 # Stanislas Marçais alias Knupel
+
+
+## 2024-2085
+
+- Artist
+- Associate founder Olombelona [ software and design creation ]
+- Frontend déveloper [ React, Typescript ]
+- Coder [ Processing, OpenFramework ]
+- Freelance graphic designer
+- Barista
+
+## 2023-2024
+
+- Artist
+- Coder [ Processing, OpenFramework ]
+- Frontend déveloper [ React, Typescript ]
+- Freelance graphic designer
+- Teacher [ ECV, Escca ]
+- Barista
+
+## 2021-2023
+
+- Artist
+- Coder: Processing, OpenFramework
+- Frontend déveloper [ React, Javascript ]
+- Freelance graphic designer
+- Technical manager [ Théatre de la Gare Vitry, Château de Versaille Spectacle  ]
+- Teacher [ ECV ]
+
 
 ## 2021-2085
 
@@ -12,7 +41,7 @@ title: "cv en"
 - Coder
 - Frontend developer
 - Freelance graphic designer
-- Teacher [ ECV ]
+- Teacher: [ ECV ]
 
 ## 2019-2021
 
@@ -48,7 +77,7 @@ title: "cv en"
 
 ## 1994-2000
 
-- Student [ Ensad ]
+- Student [ Esag, Ensad ]
 
 ## 1974-1993
 
