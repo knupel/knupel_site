@@ -5,7 +5,7 @@
 
 
 :root {
-  --font_app: "aglet-mono", Helvetica Neue, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+  --font_app: "aglet-mono", aptly, Helvetica Neue, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
   Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   --font_first_color:#800080;
   --font_second_color:yellow;

@@ -29,7 +29,7 @@ body {
   /* color: magenta; */
   color: hsla(0, 0%, 0%, 0.8);
   background: yellow;
-  font-family: "aglet-mono",Helvetica Neue, -apple-system, sans-serif;
+  font-family: "aglet-mono", aptly, Helvetica Neue, -apple-system, sans-serif;
   font-weight: 400;
   word-wrap: break-word;
   font-kerning: normal;
@@ -43,7 +43,7 @@ h1 {
   margin: 0;
   padding: 0;
   margin-bottom: 0.5rem;
-  font-family: "aglet-mono", Helvetica Neue, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+  font-family: "aglet-mono", aptly, Helvetica Neue, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: 700;
   text-rendering: optimizeLegibility;
@@ -58,7 +58,7 @@ h2 {
   padding: 0;
   margin-bottom: 0.5rem;
   color: inherit;
-  font-family: "aglet-mono",-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: "aglet-mono", aptly, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: 700;
   text-rendering: optimizeLegibility;
@@ -71,7 +71,7 @@ h3 {
   padding: 0;
   margin-bottom: 0.5rem;
   color: inherit;
-  font-family: "aglet-mono", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: "aglet-mono", aptly, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: 700;
   text-rendering: optimizeLegibility;
@@ -84,7 +84,7 @@ h4 {
   padding: 0;
   margin-bottom: 0.5rem;
   color: inherit;
-  font-family: "aglet-mono", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: "aglet-mono", aptly, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: 400;
   text-rendering: optimizeLegibility;
@@ -97,7 +97,7 @@ p {
   padding: 0;
   margin-bottom: 0.5rem;
   color: inherit;
-  font-family: "aglet-mono", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: "aglet-mono", aptly, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: 400;
   font-size: 0.7rem;

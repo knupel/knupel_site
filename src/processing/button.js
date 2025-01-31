@@ -71,7 +71,7 @@ export function button(p5) {
     p5.textSize(p5.data.font_size);
     p5.textAlign(p5.CENTER, p5.CENTER);
 
-    p5.textFont("aglet-mono, mono");
+    p5.textFont("aglet-mono, aptly, mono");
     // p5.textStyle(p5.LIGHT);
     // p5.textStyle(p5.NORMAL);
     // p5.textStyle(p5.SEMIBOLD);
