@@ -11,7 +11,7 @@ module.exports = {
     siteUrl: `https://www.knupel.art`,
     title: `Knupel`,
     description: `Herr Knupel est ici`,
-    author: `knupel`,
+    author: `Stanislas Marçais`,
   },
 
   plugins: [
@@ -42,8 +42,10 @@ module.exports = {
       },
     },
 
-    // FILE SYSTEME
+    // FILE SYSTEM
 
+
+    // FILE SYSTEM / IMAGE
     // all don't work, may be because is not a same level of researches ?
     {
       resolve: `gatsby-source-filesystem`,
@@ -55,7 +57,7 @@ module.exports = {
     },
 
 
-    // MARKDOWN
+    // FILE SYSTEM / MARKDOWN
     // https://dev.to/alexalexyang/how-to-use-markdown-in-pages-in-gatsby-5dee
     // https://www.gatsbyjs.com/docs/how-to/routing/adding-markdown-pages/
     {

@@ -30,14 +30,6 @@ export function GridPhoto() {
               childImageSharp {
                 gatsbyImageData(width: 800, height: 800, placeholder: BLURRED)
               }
-              childrenMarkdownRemark {
-                frontmatter {
-                  author
-                  title
-                  subtitle
-                }
-                html
-              }
             }
           }
         }
